@@ -20,4 +20,5 @@ public class TestOrderDao extends BaseTest{
 		List<Order> list = orderDao.selectByTable("T1001");
 		assertEquals(1, list.size());
 	}
+	
 }

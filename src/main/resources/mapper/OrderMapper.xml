@@ -4,6 +4,7 @@
 
 
 <!-- 根据桌号查询订单 -->
+<!-- 测试完成 -->
  <select id="selectByTable" parameterType="String" resultType="com.choice.eagle.entity.Order">
  SELECT * FROM sys_order WHERE tables_id = #{tableId}
  </select>
@@ -19,28 +20,9 @@
  			order_date <![CDATA[>=]]> #{beginTime} 
  		</if>
  		<if test="endTime != null and endTime != ''">
- 			order_date <![CDATA[>=]]> #{endTime}
+ 			order_date <![CDATA[<=]]> #{endTime}
  		</if>
  	</where>
  </select>
- 
-<<<<<<< HEAD
- 
-=======
- <!-- 根据条件统计营业额和订单量 -->
- <select id="countByRequire" resultMap="HashMap">
- 	select count(order_money), count(order_num) from sys_order
- 	<where>
- 		<if test="orderId != null">
- 			order_id = #{orderId}
- 		</if>
- 		<if test="beginTime != null and beginTime != ''">
- 			order_date <![CDATA[>=]]> #{beginTime} 
- 		</if>
- 		<if test="endTime != null and endTime != ''">
- 			order_date <![CDATA[>=]]> #{endTime}
- 		</if>
- 	</where>
- </select>
->>>>>>> 07d158db11dbc2ab33c91d684d0cf1ac46a189ec
+
 </mapper>

@@ -13,7 +13,7 @@
    <!-- 根据菜的种类查询菜品名称、数量和价格 -->
    <!-- 测试完成 -->
    <select id="selectByCuisine" resultType="Menu" parameterType="String">
-   		select menu_name,menu_num,menu_money from sys_menu where cuisine like #{name}
+   		select menu_name,menu_num,menu_money from sys_menu where cuisine_id like #{name}
    </select>
    <!-- 根据菜名模糊查询 -->
    <!-- 测试完成 -->
@@ -28,17 +28,20 @@
    
    
     <!-- 增 -->
-    <insert id="insertMenu" resultType="int" parameterType="Menu">
+    <!-- 测试完成 -->
+    <insert id="insertMenu" parameterType="Menu">
   		insert into sys_menu  values (#{menuId},#{cuisineId},#{menuName},#{menuMoney},#{menuDate},#{menuNum},#{menuFir},#{menuMate},#{menuRem})
   	</insert>
   	
   	<!-- 删 -->
-  	<delete id="deleteByMenuId" resultType="int" parameterType="String">  		
+  	<!-- 测试完成 -->
+  	<delete id="deleteByMenuId" parameterType="String">  		
    		delete from sys_menu where menu_id=#{menuId} 
    	</delete>
    	
    	<!-- 改-->
-   	<update id="updateMenu" resultType="int" parameterType="Menu">
+   	<!-- 测试完成 -->
+   	<update id="updateMenu" parameterType="Menu">
    		update sys_menu set 
    		cuisine_id = #{cuisineId},
    		menu_name = #{menuName},
@@ -70,17 +73,20 @@
 	</select>  
 	  
 	   <!-- 统计菜种类合计 -->
+	   <!-- 测试完成 -->
 	<select id="countKinds" resultType="int">  
 		select count(*) from sys_menu order by menu_id
 	</select> 
    
   	<!-- 统计菜种类合计 -->
+  	<!-- 测试完成 -->
 	<select id="countEmpty" resultType="int">  
 		select count(*) from sys_menu where menu_num=0
 	</select> 
    
    <!-- 余量不足的菜 -->
+   <!-- 测试完成 -->
 	<select id="countLess" resultType="int">  
-		select count(*) from sys_menu where menu_num<![CDATA[<=]]>menuNum
+		select count(*) from sys_menu where menu_num<![CDATA[<=]]>#{menuNum}
 	</select>
 </mapper>
