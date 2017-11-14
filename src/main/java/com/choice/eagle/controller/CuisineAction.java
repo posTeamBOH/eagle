@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.choice.eagle.entity.Cuisine;
@@ -19,7 +20,7 @@ public class CuisineAction {
 	@Autowired
 	private CuisineService cuisineService;
 	
-	@RequestMapping("/selectAllCuisines.action")
+	@RequestMapping(value = "/selectAllCuisines.action",method=RequestMethod.GET)
 	public @ResponseBody List<Cuisine> selectAllCuisines(HttpServletResponse response){
 		
 		 List<Cuisine> list = new ArrayList<Cuisine>();
