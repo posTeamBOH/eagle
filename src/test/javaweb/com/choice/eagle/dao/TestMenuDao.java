@@ -71,14 +71,7 @@ public class TestMenuDao extends BaseTest{
 		menu.setMenuNum("5");
 		assertEquals(1, menuDao.updateMenu(menu));
 	}
-	
-	@Test
-	public void testselectByRequire() {
-		//TODO
-		List<Order> list = menuDao.selectByRequire("M1001", null, null);
-		assertEquals(1, list.size());
-	}
-	
+
 	@Test
 	public void testcountKinds() {
 		assertEquals(4, menuDao.countKinds());
