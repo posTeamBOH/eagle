@@ -20,7 +20,6 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>spring-dispatcher</servlet-name>
-		<!-- 默认匹配所有的请求 -->
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 </web-app>

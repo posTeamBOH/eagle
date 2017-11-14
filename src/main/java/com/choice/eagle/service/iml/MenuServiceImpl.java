@@ -3,12 +3,14 @@ package com.choice.eagle.service.iml;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.choice.eagle.dao.MenuDao;
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.MenuService;
 
+@Service
 public class MenuServiceImpl implements MenuService{
 	@Autowired
 	private MenuDao menuDao;
@@ -56,7 +58,7 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	@Override
-	public List<Order> selectByRequire(String menuName, String beginTime, String endTime) {
+	public List<Menu> selectByRequire(String menuName, String beginTime, String endTime) {
 		// TODO Auto-generated method stub
 		return menuDao.selectByRequire(menuName, beginTime, endTime);
 	}
