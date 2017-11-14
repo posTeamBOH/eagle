@@ -16,7 +16,7 @@ public class TestRorderDao extends BaseTest {
 	private RorderDao rorderDao;
 	
 	@Test
-	public void testselectMenuByOrderId() {
-		
+	public void testupdateMenuStatus() {
+		assertEquals(1, rorderDao.updateMenuStatus("r1001"));
 	}
 }
