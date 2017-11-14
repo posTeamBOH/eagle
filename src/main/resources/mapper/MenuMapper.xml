@@ -57,7 +57,7 @@
    
    <!-- 查  根据条件查询菜单（注意排序） -->
 	 <select id="selectByRequire"  
-	   resultType="Order">  
+	   resultType="Menu">  
 	select * from sys_menu  
 	<where>   
 	  <if test="menuName != null">  

@@ -30,7 +30,7 @@ public interface MenuService {
 	
 	//查
 	//根据条件查询菜单（注意排序）
-	List<Order> selectByRequire(String menuName, String beginTime, String endTime);
+	List<Menu> selectByRequire(String menuName, String beginTime, String endTime);
 		
 	//计菜种类合计
 	int countKinds();
