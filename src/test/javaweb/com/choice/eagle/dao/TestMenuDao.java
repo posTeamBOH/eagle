@@ -41,13 +41,13 @@ public class TestMenuDao extends BaseTest{
 	@Test
 	public void testinsertMenu() {
 		Menu menu = new Menu();
-		menu.setCuisineId("C1001");
-		menu.setMenuDate("2016-01-02");
+		menu.setCuisineId("C1004");
+		menu.setMenuDate("2012-01-02");
 		menu.setMenuId("M1003");
 		menu.setMenuName("终极菜品");
 		menu.setMenuFir("ZZCP");
 		menu.setMenuMate("33333333");
-		menu.setMenuMoney("500");
+		menu.setMenuMoney("400");
 		menu.setMenuNum("5");
 		menuDao.insertMenu(menu);
 	}
