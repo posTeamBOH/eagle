@@ -16,7 +16,7 @@
    
    <!-- 根据菜的种类查询菜品名称、数量和价格 -->
    <select id="selectByCuisine" resultType="Menu" parameterType="String">
-   		select menu_name,menu_num,menu_money from sys_menu where cuisine_id like #{name}
+   		select menu_name,menu_num,menu_money from sys_menu where cuisine like #{name}
    </select>
    <!-- 根据菜名模糊查询 -->
 	<select id="selectByName" resultType="Menu" parameterType="String">
