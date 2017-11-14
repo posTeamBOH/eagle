@@ -35,12 +35,12 @@ public class MenuController {
 		request.setAttribute("menus", menus);
 		
 	}
-	
-	//删除菜
-	@RequestMapping(value="/deleteMenu", method=RequestMethod.POST)
-	public boolean deleteMenu(Menu menu) {
-		return menuService.deleteByMenuId(menu.getMenuId());
-	}
+//	
+//	//删除菜
+//	@RequestMapping(value="/deleteMenu", method=RequestMethod.POST)
+//	public boolean deleteMenu(Menu menu) {
+//		return menuService.deleteByMenuId(menu.getMenuId());
+//	}
 	
 	//编辑菜
 	
