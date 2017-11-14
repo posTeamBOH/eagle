@@ -71,7 +71,7 @@ public class TestMenuDao extends BaseTest{
 		menu.setMenuNum("5");
 		assertEquals(1, menuDao.updateMenu(menu));
 	}
-	
+
 	@Test
 	public void testcountKinds() {
 		assertEquals(4, menuDao.countKinds());
