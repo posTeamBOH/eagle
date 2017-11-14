@@ -21,11 +21,4 @@ public class TestOrderDao extends BaseTest{
 		assertEquals(1, list.size());
 	}
 	
-	@Test
-	public void testselectByRequire() {
-		List<Order> list = orderDao.selectByRequire("O1001", "2001-02-02 11:12:44", "2016-02-02 11:12:44");
-		List<Order> timelist = orderDao.selectByRequire(null, "2001-02-02 11:12:44", "2016-02-02 11:12:44");
-		assertEquals(5, list.get(0).getOrderNum());
-		assertEquals(5, timelist.get(0).getOrderNum());
-	}
 }

@@ -28,16 +28,19 @@
    
    
     <!-- 增 -->
+    <!-- 测试完成 -->
     <insert id="insertMenu" parameterType="Menu">
   		insert into sys_menu  values (#{menuId},#{cuisineId},#{menuName},#{menuMoney},#{menuDate},#{menuNum},#{menuFir},#{menuMate},#{menuRem})
   	</insert>
   	
   	<!-- 删 -->
+  	<!-- 测试完成 -->
   	<delete id="deleteByMenuId" parameterType="String">  		
    		delete from sys_menu where menu_id=#{menuId} 
    	</delete>
    	
    	<!-- 改-->
+   	<!-- 测试完成 -->
    	<update id="updateMenu" parameterType="Menu">
    		update sys_menu set 
    		cuisine_id = #{cuisineId},
@@ -81,6 +84,6 @@
    
    <!-- 余量不足的菜 -->
 	<select id="countLess" resultType="int">  
-		select count(*) from sys_menu where menu_num<![CDATA[<=]]>menuNum
+		select count(*) from sys_menu where menu_num<![CDATA[<=]]>#{menuNum}
 	</select>
 </mapper>
