@@ -25,7 +25,7 @@
  </select>
  
  <!-- 根据条件统计营业额和订单量 -->
- <select id="countByRequire">
+ <select id="countByRequire" resultType="Map">
  	select count(order_money), count(order_num) from sys_order
  	<where>
  		<if test="orderId != null">
