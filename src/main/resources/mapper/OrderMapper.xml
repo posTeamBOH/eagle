@@ -4,6 +4,7 @@
 
 
 <!-- 根据桌号查询订单 -->
+<!-- 测试完成 -->
  <select id="selectByTable" parameterType="String" resultType="com.choice.eagle.entity.Order">
  SELECT * FROM sys_order WHERE tables_id = #{tableId}
  </select>
@@ -19,7 +20,7 @@
  			order_date <![CDATA[>=]]> #{beginTime} 
  		</if>
  		<if test="endTime != null and endTime != ''">
- 			order_date <![CDATA[>=]]> #{endTime}
+ 			order_date <![CDATA[<=]]> #{endTime}
  		</if>
  	</where>
  </select>

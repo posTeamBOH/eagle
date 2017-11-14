@@ -15,11 +15,11 @@ import com.choice.eagle.service.CuisineService;
 
 @Controller
 @RequestMapping("/cuisine")
-public class CuisineController {
+public class CuisineAction {
 	@Autowired
 	private CuisineService cuisineService;
 	
-	@RequestMapping("/selectAllCuisines.do")
+	@RequestMapping("/selectAllCuisines.action")
 	public @ResponseBody List<Cuisine> selectAllCuisines(HttpServletResponse response){
 		
 		 List<Cuisine> list = new ArrayList<Cuisine>();

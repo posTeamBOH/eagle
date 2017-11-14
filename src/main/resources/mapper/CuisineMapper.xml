@@ -6,9 +6,7 @@
   
 <mapper namespace="com.choice.eagle.dao.CuisineDao">
 
-
-   
-   
+	<!-- 测试完成 -->
    <select id="selectAllCuisines" resultType="Cuisine" >
    		select * from sys_cuisine
    </select>

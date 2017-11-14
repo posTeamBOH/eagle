@@ -21,13 +21,13 @@ public interface MenuDao {
 	int countMenuById(String menuId);
 	
 	//增
-	void insertMenu(Menu menu);  
+	int insertMenu(Menu menu);  
 	
 	//删
-	void deleteByMenuId(String menuId);
+	int deleteByMenuId(String menuId);
 	
 	//改
-	void updateMenu(Menu menu);
+	int updateMenu(Menu menu);
 	
 	//查
 	//根据条件查询菜单（注意排序）
