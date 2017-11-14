@@ -3,6 +3,7 @@
 <mapper namespace="com.choice.eagle.dao.RorderDao">
    <select id="selectMenuByOrderId" parameterType="String" resultMap="BaseResultMap">
   	SELECT menu_id menuId, COUNT(*) count FROM sys_rorder 
+  </select>
   <resultMap id="BaseResultMap" type="com.choice.eagle.entity.MenuNum" >
     <id column="menuId" property="menuId"  />
     <result column="count" property="count"  />
@@ -12,5 +13,5 @@
   	 set rorder_type = '1'
   	 where rorder_id = #{rorderId}
   </update>
-  </select>
+  
 </mapper>
