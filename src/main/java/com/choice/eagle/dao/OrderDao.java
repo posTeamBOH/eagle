@@ -1,7 +1,7 @@
 package com.choice.eagle.dao;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.choice.eagle.entity.Order;
 
@@ -14,5 +14,5 @@ public interface OrderDao {
 	List<Order> selectByRequire(String orderId, String beginTime, String endTime);
 	
 	//根据条件统计订单时间和订单量
-	Map<String, Integer> countByRequire(String orderId, String beginTime, String endTime);
+	HashMap<String, Integer> countByRequire(String orderId, String beginTime, String endTime);
 }
