@@ -7,9 +7,10 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.choice.eagle.BaseTest;
 import com.choice.eagle.entity.Order;
 
-public class TestOrderDao {
+public class TestOrderDao extends BaseTest{
 
 	@Autowired
 	private OrderDao orderDao;
