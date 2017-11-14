@@ -24,6 +24,9 @@
  	</where>
  </select>
  
+<<<<<<< HEAD
+ 
+=======
  <!-- 根据条件统计营业额和订单量 -->
  <select id="countByRequire" resultMap="HashMap">
  	select count(order_money), count(order_num) from sys_order
@@ -39,4 +42,5 @@
  		</if>
  	</where>
  </select>
+>>>>>>> 07d158db11dbc2ab33c91d684d0cf1ac46a189ec
 </mapper>

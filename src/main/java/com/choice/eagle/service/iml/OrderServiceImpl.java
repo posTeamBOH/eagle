@@ -22,10 +22,6 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return orderDao.selectByRequire(orderId, beginTime, endTime);
 	}
-	@Override
-	public Map<String, Integer> countByRequire(String orderId, String beginTime, String endTime) {
-		// TODO Auto-generated method stub
-		return orderDao.countByRequire(orderId, beginTime, endTime);
-	}
+	
 
 }

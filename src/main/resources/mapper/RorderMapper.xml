@@ -2,13 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.choice.eagle.dao.RorderDao">
 
+<<<<<<< HEAD
+   <select id="selectMenuByOrderId" parameterType="String" resultMap="BaseResultMap">
+  	SELECT menu_id menuId, COUNT(*) count FROM sys_rorder 
+=======
 <!-- 根据订单号查询订单的菜品及数量 -->
    <select id="selectMenuByOrderId" parameterType="String" resultMap="HashMap">
   	SELECT menu_id, COUNT(*) FROM sys_rorder 
+>>>>>>> 07d158db11dbc2ab33c91d684d0cf1ac46a189ec
   	WHERE rorder_id = #{rorderId} 
   	GROUP BY menu_id 
   </select>
-  
+  <resultMap id="BaseResultMap" type="com.choice.eagle.entity.MenuNum" >
+    <id column="menuId" property="menuId"  />
+    <result column="count" property="count"  />
+  </resultMap>
    <update id="updateMenuStatus" parameterType="String">
   	 update sys_rorder
   	 set rorder_type = '1'
