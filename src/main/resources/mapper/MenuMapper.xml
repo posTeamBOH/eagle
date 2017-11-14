@@ -29,17 +29,17 @@
    
    
     <!-- 增 -->
-    <insert id="insertMenu" parameterType="Menu">
+    <insert id="insertMenu" resultType="int" parameterType="Menu">
   		insert into sys_menu  values (#{menuId},#{cuisineId},#{menuName},#{menuMoney},#{menuDate},#{menuNum},#{menuFir},#{menuMate},#{menuRem})
   	</insert>
   	
   	<!-- 删 -->
-  	<delete id="deleteByMenuId" parameterType="String">  		
+  	<delete id="deleteByMenuId" resultType="int" parameterType="String">  		
    		delete from sys_menu where menu_id=#{menuId} 
    	</delete>
    	
    	<!-- 改-->
-   	<update id="updateMenu" parameterType="Menu">
+   	<update id="updateMenu" resultType="int" parameterType="Menu">
    		update sys_menu set 
    		cuisine_id = #{cuisineId},
    		menu_name = #{menuName},

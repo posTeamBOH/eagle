@@ -38,21 +38,21 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	@Override
-	public void insertMenu(Menu menu) {
+	public int  insertMenu(Menu menu) {
 		// TODO Auto-generated method stub
-		menuDao.insertMenu(menu);
+		return menuDao.insertMenu(menu);
 	}
 
 	@Override
-	public void deleteByMenuId(String menuId) {
+	public int deleteByMenuId(String menuId) {
 		// TODO Auto-generated method stub
-		menuDao.deleteByMenuId(menuId);
+		return menuDao.deleteByMenuId(menuId);
 	}
 
 	@Override
-	public void updateMenu(Menu menu) {
+	public int  updateMenu(Menu menu) {
 		// TODO Auto-generated method stub
-		menuDao.updateMenu(menu);
+		return menuDao.updateMenu(menu);
 	}
 
 	@Override
