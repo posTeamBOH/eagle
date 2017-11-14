@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<!-- mysqljar包 -->  
+  <context id="context1">
+  	<commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+    
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/eagle?useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="root"
+                        password="7777">
+    </jdbcConnection>
+    
+    <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.choice.eagle.entity"
+                            targetProject="eagle/src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator
+                targetPackage="mapper"
+                targetProject="eagle/src/main/resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.choice.eagle.dao"
+                             targetProject="eagle/src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+    
+    <table schema="" tableName="sys_cuisine" domainObjectName="Cuisine">
+    <generatedKey column="cuisine_id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table schema="" tableName="sys_menu" domainObjectName="Menu">
+    <generatedKey column="menu_id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table schema="" tableName="sys_order" domainObjectName="Order">
+    <generatedKey column="order_id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table schema="" tableName="sys_rorder" domainObjectName="Rorder">
+    <generatedKey column="rorder_id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table schema="" tableName="sys_tables" domainObjectName="Table">
+    <generatedKey column="tables_id" sqlStatement="Mysql" identity="true"/>
+    </table>
+
+  </context>
+</generatorConfiguration>
