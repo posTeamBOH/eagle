@@ -12,4 +12,5 @@
   	 set rorder_type = '1'
   	 where rorder_id = #{rorderId}
   </update>
+  </select>
 </mapper>
