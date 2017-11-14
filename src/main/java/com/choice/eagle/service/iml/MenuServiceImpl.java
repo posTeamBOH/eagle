@@ -56,7 +56,7 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	@Override
-	public List<Order> selectByRequire(String menuName, String beginTime, String endTime) {
+	public List<Menu> selectByRequire(String menuName, String beginTime, String endTime) {
 		// TODO Auto-generated method stub
 		return menuDao.selectByRequire(menuName, beginTime, endTime);
 	}
