@@ -1,5 +1,6 @@
 package com.choice.eagle.service.iml;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,8 +20,8 @@ public class OrderServiceImpl implements OrderService{
 	}
 	@Override
 	public List<Order> selectByRequire(String orderId, String beginTime, String endTime) {
-		// TODO Auto-generated method stub
-		return orderDao.selectByRequire(orderId, beginTime, endTime);
+		Map<String, String> map = new HashMap<String, String>();
+		return orderDao.selectByRequire(map);
 	}
 	
 

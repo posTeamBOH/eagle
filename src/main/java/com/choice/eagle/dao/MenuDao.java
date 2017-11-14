@@ -1,6 +1,7 @@
 package com.choice.eagle.dao;
 
 import com.choice.eagle.entity.Menu;
+import com.choice.eagle.entity.ObjectMap;
 import com.choice.eagle.entity.Order;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public interface MenuDao {
 	
 	//查
 	//根据条件查询菜单（注意排序）
-	List<Menu> selectByRequire(String MenuId, String beginTime, String endTime);
+	List<Menu> selectByRequire(ObjectMap map);
 		
 	//计菜种类合计
 	int countKinds();

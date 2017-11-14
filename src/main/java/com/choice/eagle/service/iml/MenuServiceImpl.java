@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.choice.eagle.dao.MenuDao;
 import com.choice.eagle.entity.Menu;
+import com.choice.eagle.entity.ObjectMap;
 import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.MenuService;
 
@@ -59,8 +60,11 @@ public class MenuServiceImpl implements MenuService{
 
 	@Override
 	public List<Menu> selectByRequire(String menuName, String beginTime, String endTime) {
-		// TODO Auto-generated method stub
-		return menuDao.selectByRequire(menuName, beginTime, endTime);
+		ObjectMap map = new ObjectMap();
+		map.setMenuName(menuName);
+		map.setBeginTime(beginTime);
+		map.setEndTime(endTime);
+		return menuDao.selectByRequire(map);
 	}
 
 	@Override

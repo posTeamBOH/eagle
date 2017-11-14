@@ -57,8 +57,8 @@
    
    
    <!-- 查  根据条件查询菜单（注意排序） -->
-	 <select id="selectByRequire"  
-	   resultType="Menu">  
+	 <select id="selectByRequire" parameterType="ObjectMap" 
+	   resultType="Menu" >  
 	select * from sys_menu  
 	<where>   
 	  <if test="menuName != null">  
@@ -67,7 +67,7 @@
 	  <if test="beginTime != null and beginTime != ''">
 	  AND menu_date <![CDATA[>=]]> #{beginTime}</if> 
 	<if test="endTime != null and endTime != ''">
-	AND menu <![CDATA[<=]]>#{endTime}</if>  
+	AND menu_date <![CDATA[<=]]>#{endTime}</if>
 	</where> 
 	 	order by menu_num desc
 	</select>  
