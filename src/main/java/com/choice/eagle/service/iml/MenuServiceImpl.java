@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.choice.eagle.dao.MenuDao;
 import com.choice.eagle.entity.Menu;
+import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.MenuService;
 
 public class MenuServiceImpl implements MenuService{
@@ -34,5 +35,47 @@ public class MenuServiceImpl implements MenuService{
 	public int countMenuById(String menuId) {
 		// TODO Auto-generated method stub
 		return menuDao.countMenuById(menuId);
+	}
+
+	@Override
+	public void insertMenu(Menu menu) {
+		// TODO Auto-generated method stub
+		menuDao.insertMenu(menu);
+	}
+
+	@Override
+	public void deleteByMenuId(String menuId) {
+		// TODO Auto-generated method stub
+		menuDao.deleteByMenuId(menuId);
+	}
+
+	@Override
+	public void updateMenu(Menu menu) {
+		// TODO Auto-generated method stub
+		menuDao.updateMenu(menu);
+	}
+
+	@Override
+	public List<Order> selectByRequire(String menuName, String beginTime, String endTime) {
+		// TODO Auto-generated method stub
+		return menuDao.selectByRequire(menuName, beginTime, endTime);
+	}
+
+	@Override
+	public int countKinds() {
+		// TODO Auto-generated method stub
+		return menuDao.countKinds();
+	}
+
+	@Override
+	public int countEmpty() {
+		// TODO Auto-generated method stub
+		return menuDao.countEmpty();
+	}
+
+	@Override
+	public int countLess(int menuNum) {
+		// TODO Auto-generated method stub
+		return menuDao.countLess(menuNum);
 	}
 }
