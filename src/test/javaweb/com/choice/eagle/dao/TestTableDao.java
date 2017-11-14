@@ -4,4 +4,5 @@ import com.choice.eagle.BaseTest;
 
 public class TestTableDao extends BaseTest {
 
+	
 }

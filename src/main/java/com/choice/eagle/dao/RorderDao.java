@@ -8,6 +8,6 @@ public interface RorderDao {
 	HashMap<String, Integer> selectMenuByOrderId(String orderId); 
     
 	//改变订单联系表中的菜品状态
-	void updateMenuStatus(String rorderId);
+	int updateMenuStatus(String rorderId);
 	
 }

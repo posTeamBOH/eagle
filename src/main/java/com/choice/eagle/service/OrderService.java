@@ -12,5 +12,5 @@ public interface OrderService {
 		List<Order> selectByRequire(String orderId, String beginTime, String endTime);
 		
 		//根据条件统计订单时间和订单量
-		Map<String, Integer> countByRequire(String orderId, String beginTime, String endTime);
+		Map countByRequire(String orderId, String beginTime, String endTime);
 }
