@@ -12,9 +12,9 @@ public class RorderServiceImpl implements RorderService{
 	@Autowired
 	private RorderDao rorderDao;
 	@Override
-	public List<Menu> selectMenuByOrderId(String orderId) {
+	public Map<String, Integer> selectMenuByOrderId(String orderId) {
 		// TODO Auto-generated method stub
-		return rorderDao.selectMenuByOrderId(orderId);
+		return  rorderDao.selectMenuByOrderId(orderId);
 	}
 
 	@Override
