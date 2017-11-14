@@ -3,12 +3,40 @@
 <mapper namespace="com.choice.eagle.dao.OrderDao">
 
 
+<!-- 根据桌号查询订单 -->
  <select id="selectByTable" parameterType="String" resultType="com.choice.eagle.entity.Order">
  SELECT * FROM sys_order WHERE tables_id = #{tableId}
  </select>
  
- <select id="">
+ <!-- 根据条件查询订单 -->
+ <select id="selectByRequire" parameterType="String" resultType="order">
+ 	select * from sys_order
+ 	<where>
+ 		<if test="orderId != null">
+ 			order_id = #{orderId}
+ 		</if>
+ 		<if test="beginTime != null and beginTime != ''">
+ 			order_date <![CDATA[>=]]> #{beginTime} 
+ 		</if>
+ 		<if test="endTime != null and endTime != ''">
+ 			order_date <![CDATA[>=]]> #{endTime}
+ 		</if>
+ 	</where>
+ </select>
  
- 
+ <!-- 根据条件统计营业额和订单量 -->
+ <select id="countByRequire">
+ 	select count(order_money), count(order_num) from sys_order
+ 	<where>
+ 		<if test="orderId != null">
+ 			order_id = #{orderId}
+ 		</if>
+ 		<if test="beginTime != null and beginTime != ''">
+ 			order_date <![CDATA[>=]]> #{beginTime} 
+ 		</if>
+ 		<if test="endTime != null and endTime != ''">
+ 			order_date <![CDATA[>=]]> #{endTime}
+ 		</if>
+ 	</where>
  </select>
 </mapper>

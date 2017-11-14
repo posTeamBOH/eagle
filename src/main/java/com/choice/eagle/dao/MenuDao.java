@@ -31,10 +31,16 @@ public interface MenuDao {
 	
 	//查
 	//根据条件查询菜单（注意排序）
-	List<Order> selectByRequire(String MenuId, String beginTime, String endTime, int mnumber);
+	List<Order> selectByRequire(String MenuId, String beginTime, String endTime);
 		
-	//根据条件统计菜种类合计，菜品售空数
-	Map<String, Integer> countByRequire(String MenuId, String beginTime, String endTime, int mnumber);
+	//计菜种类合计
+	int countKinds();
+	
+	//统计菜品 空数
+	int countEmpty();
+	
+	//余量不足的菜
+	int countLess(int menuNum);
 }
 
 
