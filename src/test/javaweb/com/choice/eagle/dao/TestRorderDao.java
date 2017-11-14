@@ -8,16 +8,15 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.choice.eagle.BaseTest;
-import com.choice.eagle.entity.Order;
+import com.choice.eagle.entity.Menu;
 
-public class TestOrderDao extends BaseTest{
+public class TestRorderDao extends BaseTest {
 
 	@Autowired
-	private OrderDao orderDao;
+	private RorderDao rorderDao;
 	
 	@Test
-	public void testselectByTable() {
-		List<Order> list = orderDao.selectByTable("T1001");
-		assertEquals(1, list.size());
+	public void testselectMenuByOrderId() {
+		
 	}
 }
