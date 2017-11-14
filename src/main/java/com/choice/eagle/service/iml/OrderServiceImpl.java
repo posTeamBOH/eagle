@@ -1,6 +1,7 @@
 package com.choice.eagle.service.iml;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,6 +16,16 @@ public class OrderServiceImpl implements OrderService{
 	public List<Order> selectByTable(String tableId) {
 		// TODO Auto-generated method stub
 		return orderDao.selectByTable(tableId);
+	}
+	@Override
+	public List<Order> selectByRequire(String orderId, String beginTime, String endTime) {
+		// TODO Auto-generated method stub
+		return orderDao.selectByRequire(orderId, beginTime, endTime);
+	}
+	@Override
+	public Map<String, Integer> countByRequire(String orderId, String beginTime, String endTime) {
+		// TODO Auto-generated method stub
+		return orderDao.countByRequire(orderId, beginTime, endTime);
 	}
 
 }
