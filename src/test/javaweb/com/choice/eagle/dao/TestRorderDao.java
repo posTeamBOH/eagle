@@ -20,10 +20,4 @@ public class TestRorderDao extends BaseTest {
 	public void testupdateMenuStatus() {
 		assertEquals(1, rorderDao.updateMenuStatus("r1001"));
 	}
-	
-	@Test
-	public void testselectMenuByOrderId() {
-		Map<String, Integer> map = rorderDao.selectMenuByOrderId("O1001");
-		assertEquals(Integer.valueOf(1), map.get("count"));
-	}
 }
