@@ -2,10 +2,6 @@ package com.choice.eagle.controller;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
-import com.choice.eagle.entity.Rorder;
 import com.choice.eagle.service.OrderService;
 import com.choice.eagle.service.RorderService;
 
