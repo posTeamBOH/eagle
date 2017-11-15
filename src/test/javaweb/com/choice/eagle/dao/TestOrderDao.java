@@ -23,4 +23,9 @@ public class TestOrderDao extends BaseTest{
 		assertEquals(1, list.size());
 	}
 
+	@Test
+	public void testselectByRequire() {
+		List<Order> list = orderDao.selectByRequire(null, null, null);
+		assertEquals(1, list.size());
+	}
 }

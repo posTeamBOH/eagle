@@ -13,8 +13,9 @@
  <select id="selectByRequire" resultType="order">
  	select * from sys_order
  	<where>
+ 		1=1
  		<if test="orderId != null">
- 			order_id = #{orderId}
+ 			and order_id = #{orderId}
  		</if>
  		<if test="beginTime != null and beginTime != ''">
  		and	order_date <![CDATA[>=]]> #{beginTime} 
