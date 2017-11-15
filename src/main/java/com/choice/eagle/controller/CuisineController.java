@@ -26,7 +26,7 @@ public class CuisineController {
 		 
 		 list = cuisineService.selectAllCuisines() ;
 		
-		 return list ;
+		 return list;
 		
 	}
 }
