@@ -6,7 +6,7 @@
 <!-- 根据桌号查询订单 -->
 <!-- 测试完成 -->
  <select id="selectByTable" parameterType="String" resultType="com.choice.eagle.entity.Order">
- SELECT * FROM sys_order WHERE tables_id = #{tableId}
+ SELECT * FROM sys_order WHERE tables_id = #{tableId} and order_type='1'
  </select>
  
  <!-- 根据条件查询订单 -->

@@ -25,7 +25,7 @@ public class RorderController {
 	@Autowired
 	OrderService orderService;
 	@Autowired
-	RorderService roserService;
+	RorderService rorderService;
 	
 	//后台人员根据条件查询订单，得到订单、订单中的菜品数量
 	@RequestMapping(value="/getOrders", method = RequestMethod.POST)
@@ -34,7 +34,7 @@ public class RorderController {
 				@RequestParam("begin") String begin, 
 				@RequestParam("end") String end) {
 		List<Order> orders = orderService.selectByRequire(orderId, begin, end);
-		HashMap<String, Object> menuNum = roserService.getMenuNum(orders);
+		HashMap<String, Object> menuNum = rorderService.getMenuNum(orders);
 		for (Order order : orders) {
 			int count = (int) menuNum.get(order.getOrderId());
 			order.setOrderRemark("" + count);
@@ -45,7 +45,7 @@ public class RorderController {
 	@RequestMapping("/selectMenuByOrderId")
 	@ResponseBody
 	public List<MenuNum> selectMenuByOrderId(@RequestParam("orderId") String orderId){
-		List<MenuNum> list = roserService.selectMenuByOrderId(orderId);
+		List<MenuNum> list = rorderService.selectMenuByOrderId(orderId);
 		return list;
 	}
 	
@@ -54,7 +54,7 @@ public class RorderController {
 	public List<Order> emptygetOrderByRequest(){
 
 		List<Order> orders = orderService.selectByRequire(null, null, null);
-		HashMap<String, Object> menuNum = roserService.getMenuNum(orders);
+		HashMap<String, Object> menuNum = rorderService.getMenuNum(orders);
 		for (Order order : orders) {
 			int count = (int) menuNum.get(order.getOrderId());
 			order.setOrderRemark("" + count);
