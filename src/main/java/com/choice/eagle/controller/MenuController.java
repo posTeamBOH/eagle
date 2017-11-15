@@ -25,6 +25,14 @@ public class MenuController {
 	@Autowired
 	private MenuService menuService;
 	
+//	//得到菜品
+//	@RequestMapping(value="/getMenu.do")
+//	public ModelAndView getMenus(@RequestParam("menuId") String menuId, @RequestParam("beginTime") String beginTime) {
+//		Map<String, Object> data = null;
+//		data.put("menus", menuService.selectByMenu());
+//		return new ModelAndView("data", data);
+//	}
+	
 	//得到菜品
 	/**
 	 * 后台人员根据条件查询菜
@@ -44,6 +52,12 @@ public class MenuController {
 	public String deleteMenu(Menu menu) {
 		return menuService.deleteByMenuId(menu.getMenuId()) == 0  ? "false" : "true";
 	}
+//	
+//	//删除菜
+//	@RequestMapping(value="/deleteMenu", method=RequestMethod.POST)
+//	public boolean deleteMenu(Menu menu) {
+//		return menuService.deleteByMenuId(menu.getMenuId());
+//	}
 	
 	//编辑菜
 	//后台人员确定修改菜品
@@ -60,7 +74,6 @@ public class MenuController {
 	public String add(Menu menu) {
 		return menuService.insertMenu(menu) == 0 ? "false" : "true";
 	}
-	
 
 	//获得余量不足菜品
 	@RequestMapping("/selectByMenu")
@@ -77,5 +90,12 @@ public class MenuController {
 		return list;
 	}
 	
-	
+	//根据菜目查询菜品
+	@RequestMapping("/selectByCuisine")
+	@ResponseBody
+	public List<Menu> selectByCuisine(@Param("CuisineId") String CuisineId){
+		List<Menu> list = menuService.selectByCuisine(CuisineId);
+		return list;
+	}
+
 }
