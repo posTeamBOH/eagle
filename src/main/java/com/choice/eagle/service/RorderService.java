@@ -16,5 +16,5 @@ public interface RorderService {
 		void updateMenuStatus(String orderId);
 		
 		//查询定单的菜品数量
-		HashMap<String, Integer> getMenuNum(List<Order> orders);
+		HashMap<String, Object> getMenuNum(List<Order> orders);
 }

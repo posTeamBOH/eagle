@@ -30,8 +30,8 @@ public class RorderServiceImpl implements RorderService{
 
 	//根据订单号查询菜品数量
 	@Override
-	public HashMap<String, Integer> getMenuNum(List<Order> orders) {
-		HashMap<String, Integer> menuNum = new HashMap<>();
+	public HashMap<String, Object> getMenuNum(List<Order> orders) {
+		HashMap<String, Object> menuNum = new HashMap<>();
 		for (int i = 0; i < orders.size(); i++) {
 			Order order = orders.get(i);
 			int num = rorderDao.countAllMenuByOrderId(order.getOrderId());
