@@ -22,8 +22,7 @@ public class OrderServiceImpl implements OrderService{
 	}
 	@Override
 	public List<Order> selectByRequire(String orderId, String beginTime, String endTime) {
-		Map<String, String> map = new HashMap<String, String>();
-		return orderDao.selectByRequire(map);
+		return orderDao.selectByRequire(orderId, beginTime, endTime);
 	}
 	
 
