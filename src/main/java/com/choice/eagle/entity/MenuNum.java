@@ -3,6 +3,7 @@ package com.choice.eagle.entity;
 public class MenuNum {
 	private String menuId;
 	private int count;
+	
 	public String getMenuId() {
 		return menuId;
 	}

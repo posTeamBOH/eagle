@@ -7,6 +7,8 @@ import com.choice.eagle.entity.Order;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface MenuDao {
 	
 	//查询剩余数量为零的菜品
@@ -14,6 +16,9 @@ public interface MenuDao {
 	
 	//根据菜的种类查询菜品名称、数量和价格
 	List<Menu> selectByCuisine(String cuisineId);
+	
+	//根据菜的id查询菜
+	Menu selectNameById(String menuId);
 	
 	//根据菜名模糊查询
 	List<Menu> selectByName(String name);
@@ -32,7 +37,7 @@ public interface MenuDao {
 	
 	//查
 	//根据条件查询菜单（注意排序）
-	List<Menu> selectByRequire(ObjectMap map);
+	List<Menu> selectByRequire(@Param("menuId")String menuId, @Param("beginTime")String beginTime, @Param("endTime")String endTime);
 		
 	//计菜种类合计
 	int countKinds();

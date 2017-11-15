@@ -13,6 +13,6 @@ public interface OrderDao {
 	List<Order> selectByTable(String tableId);
 	
 	//根据条件查询订单
-	List<Order> selectByRequire(Map<String, String> map);
+	List<Order> selectByRequire(@Param("orderId")String orderId, @Param("beginTime")String beginTime, @Param("endTime") String endTime);
 	
 }

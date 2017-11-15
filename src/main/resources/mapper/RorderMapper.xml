@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.choice.eagle.dao.RorderDao">
+
+
    <select id="selectMenuByOrderId" parameterType="String" resultMap="BaseResultMap">
-  	SELECT menu_id menuId, COUNT(*) count FROM sys_rorder 
+  	SELECT menu_id menuId, COUNT(*) count FROM sys_rorder  where order_id=#{orderId} group by menuId
   </select>
-  <resultMap id="BaseResultMap" type="com.choice.eagle.entity.MenuNum" >
-    <id column="menuId" property="menuId"  />
+  
+  <resultMap id="BaseResultMap" type="MenuNum" >
+       <id column="menuId" property="menuId"  />
     <result column="count" property="count"  />
   </resultMap>
    <update id="updateMenuStatus" parameterType="String">

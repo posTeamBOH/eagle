@@ -21,32 +21,37 @@ public class MenuController {
 	@Autowired
 	private MenuService menuService;
 	
-//	//得到菜品
-//	@RequestMapping(value="/getMenu.do")
-//	public ModelAndView getMenus(@RequestParam("menuId") String menuId, @RequestParam("beginTime") String beginTime) {
-//		Map<String, Object> data = null;
-//		data.put("menus", menuService.selectByMenu());
-//		return new ModelAndView("data", data);
-//	}
-	
 	//得到菜品
-	@RequestMapping(value="/getMenu", method=RequestMethod.POST)
+	/**
+	 * 后台人员根据条件查询菜
+	 */
+	@RequestMapping(value="/getMenu.do", method=RequestMethod.POST)
 	public void getMenus(@RequestParam("menuId") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("end") String endTime, HttpServletRequest request) {
 		List<Menu> menus = null;
 		menus = menuService.selectByRequire(menuId, beginTime, endTime);
-		request.setAttribute("menus", menus);
-		
+		request.setAttribute("menus", menus);	
 	}
-//	
-//	//删除菜
-//	@RequestMapping(value="/deleteMenu", method=RequestMethod.POST)
-//	public boolean deleteMenu(Menu menu) {
-//		return menuService.deleteByMenuId(menu.getMenuId());
-//	}
+	
+	//删除菜
+	//后台人员点击删除
+	@RequestMapping(value="/deleteMenu.do", method=RequestMethod.POST)
+	public int deleteMenu(Menu menu) {
+		return menuService.deleteByMenuId(menu.getMenuId());
+	}
 	
 	//编辑菜
+	//后台人员确定修改菜品
+	@RequestMapping(value="/update.do", method=RequestMethod.POST)
+	public int updateMenu(Menu menu) {
+		return menuService.updateMenu(menu);
+	}
 	
 	//增加菜
+	//后台人员添加菜品
+	@RequestMapping(value="/addMenu.do", method=RequestMethod.POST)
+	public int add(Menu menu) {
+		return menuService.insertMenu(menu);
+	}
 	
 
 	//获得余量不足菜品
