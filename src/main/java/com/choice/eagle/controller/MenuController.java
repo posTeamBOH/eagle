@@ -9,12 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.service.MenuService;
 
 @Controller
-@RequestMapping("menu")
+@RequestMapping("/menu")
 public class MenuController {
 	@Autowired
 	private MenuService menuService;
@@ -47,4 +48,10 @@ public class MenuController {
 	//增加菜
 	
 
+	//获得余量不足菜品
+	@RequestMapping("/selectByMenu")
+	@ResponseBody
+	public List<Menu> selectByMenu(){
+		return menuService.selectByMenu();
+	}
 }
