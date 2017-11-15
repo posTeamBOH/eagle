@@ -1,5 +1,6 @@
 package com.choice.eagle.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,13 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.service.MenuService;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 @Controller
 @RequestMapping("/menu")
@@ -26,31 +30,35 @@ public class MenuController {
 	 * 后台人员根据条件查询菜
 	 */
 	@RequestMapping(value="/getMenu.do", method=RequestMethod.POST)
-	public void getMenus(@RequestParam("menuId") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("end") String endTime, HttpServletRequest request) {
-		List<Menu> menus = null;
-		menus = menuService.selectByRequire(menuId, beginTime, endTime);
-		request.setAttribute("menus", menus);	
+	@ResponseBody
+	public List<Menu> getMenus(@RequestParam("menuId") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("end") String endTime) {
+		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
+		
+		return menus;
+
 	}
-	
 	//删除菜
 	//后台人员点击删除
 	@RequestMapping(value="/deleteMenu.do", method=RequestMethod.POST)
-	public int deleteMenu(Menu menu) {
-		return menuService.deleteByMenuId(menu.getMenuId());
+	@ResponseBody
+	public String deleteMenu(Menu menu) {
+		return menuService.deleteByMenuId(menu.getMenuId()) == 0  ? "false" : "true";
 	}
 	
 	//编辑菜
 	//后台人员确定修改菜品
 	@RequestMapping(value="/update.do", method=RequestMethod.POST)
-	public int updateMenu(Menu menu) {
-		return menuService.updateMenu(menu);
+	@ResponseBody
+	public String updateMenu(Menu menu) {
+		return menuService.updateMenu(menu) == 0 ? "false" : "true";
 	}
 	
 	//增加菜
 	//后台人员添加菜品
 	@RequestMapping(value="/addMenu.do", method=RequestMethod.POST)
-	public int add(Menu menu) {
-		return menuService.insertMenu(menu);
+	@ResponseBody
+	public String add(Menu menu) {
+		return menuService.insertMenu(menu) == 0 ? "false" : "true";
 	}
 	
 
@@ -68,4 +76,6 @@ public class MenuController {
 		List<Menu> list = menuService.selectByName(name);
 		return list;
 	}
+	
+	
 }
