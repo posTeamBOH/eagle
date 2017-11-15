@@ -60,11 +60,8 @@ public class MenuServiceImpl implements MenuService{
 
 	@Override
 	public List<Menu> selectByRequire(String menuName, String beginTime, String endTime) {
-		ObjectMap map = new ObjectMap();
-		map.setMenuName(menuName);
-		map.setBeginTime(beginTime);
-		map.setEndTime(endTime);
-		return menuDao.selectByRequire(map);
+		
+		return menuDao.selectByRequire(menuName, beginTime, endTime);
 	}
 
 	@Override
