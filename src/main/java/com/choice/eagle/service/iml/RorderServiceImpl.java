@@ -6,9 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.choice.eagle.dao.OrderDao;
 import com.choice.eagle.dao.RorderDao;
-import com.choice.eagle.entity.Menu;
 import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.RorderService;
@@ -17,11 +15,12 @@ import com.choice.eagle.service.RorderService;
 public class RorderServiceImpl implements RorderService{
 	@Autowired
 	private RorderDao rorderDao;
-//	@Override
-//	public List<Menu> selectMenuByOrderId(String orderId) {
-//		
-//		return  rorderDao.selectMenuByOrderId(orderId);
-//	}
+	@Override
+	public List<MenuNum> selectMenuByOrderId(String orderId) {
+		// TODO Auto-generated method stub
+		return rorderDao.selectMenuByOrderId(orderId);
+	}
+
 
 	@Override
 	public void updateMenuStatus(String orderId) {
@@ -41,10 +40,6 @@ public class RorderServiceImpl implements RorderService{
 		return menuNum;
 	}
 
-	@Override
-	public List<MenuNum> selectMenuByOrderId(String orderId) {
-		// TODO Auto-generated method stub
-		return rorderDao.selectMenuByOrderId(orderId);
-	}
+
 
 }
