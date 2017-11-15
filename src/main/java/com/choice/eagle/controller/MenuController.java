@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,5 +54,13 @@ public class MenuController {
 	@ResponseBody
 	public List<Menu> selectByMenu(){
 		return menuService.selectByMenu();
+	}
+	
+	//根据菜名模糊查询
+	@RequestMapping("/selectByName")
+	@ResponseBody
+	public List<Menu> selectByName(@Param("name") String name, HttpServletRequest request){
+		List<Menu> list = menuService.selectByName(name);
+		return list;
 	}
 }
