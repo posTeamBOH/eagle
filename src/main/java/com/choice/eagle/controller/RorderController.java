@@ -2,6 +2,7 @@ package com.choice.eagle.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,19 +28,17 @@ public class RorderController {
 	
 	//后台人员根据条件查询订单，得到订单、订单中的菜品数量
 	@RequestMapping(value="/getOrders")
-	public String getOrderByRequest(@RequestParam("orderId") String orderId, 
+	@ResponseBody
+	public Map<String, Object> getOrderByRequest(@RequestParam("orderId") String orderId, 
 				@RequestParam("begin") String beginTime, 
-				@RequestParam("end") String endTime,
-				HttpServletRequest request) {
+				@RequestParam("end") String endTime) {
 		List<Order> orders = orderService.selectByRequire(orderId, beginTime, endTime);
-		request.setAttribute("orders", orders);
-		
-		HashMap<String, Integer> menuNum = roserService.getMenuNum(orders);
-		request.setAttribute("menuNum", menuNum);
-		return "OrderInfo";
+		HashMap<String, Object> menuNum = roserService.getMenuNum(orders);
+		menuNum.put("orders", orders);
+		return menuNum;
 	}
 
-	@RequestMapping()
+	@RequestMapping("/selectMenuByOrderId")
 	@ResponseBody
 	public List<MenuNum> selectMenuByOrderId(@RequestParam("orderId") String orderId){
 		List<MenuNum> list = roserService.selectMenuByOrderId(orderId);

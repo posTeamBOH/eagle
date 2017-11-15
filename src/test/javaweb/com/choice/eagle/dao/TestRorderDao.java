@@ -20,4 +20,9 @@ public class TestRorderDao extends BaseTest {
 	public void testupdateMenuStatus() {
 		assertEquals(1, rorderDao.updateMenuStatus("r1001"));
 	}
+	
+	@Test
+	public void testcountAllMenuByOrderId() {
+		assertEquals(1, rorderDao.countAllMenuByOrderId("O1001"));
+	}
 }
