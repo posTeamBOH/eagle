@@ -4,13 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.choice.eagle.entity.Menu;
 import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
 
 public interface RorderService {
-//		//根据订单号查询订单的菜品及数量
-	List<MenuNum> selectMenuByOrderId(String orderId); 	    
+
+		//根据订单号查询订单的菜品及数量
+		List<MenuNum> selectMenuByOrderId(String orderId); 
+	    
 		//改变订单联系表中的菜品状态
 		void updateMenuStatus(String orderId);
 		

@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.choice.eagle.BaseTest;
 import com.choice.eagle.entity.Menu;
-import com.choice.eagle.entity.ObjectMap;
 import com.choice.eagle.entity.Order;
 
 public class TestMenuDao extends BaseTest{
@@ -89,14 +88,5 @@ public class TestMenuDao extends BaseTest{
 	public void testcountLess() {
 		assertEquals(1, menuDao.countLess(4));
 	}
-	
-	@Test
-	public void testselectByRequire() {
-		ObjectMap map = new ObjectMap();
-		map.setMenuName("测试菜品");
-		map.setBeginTime("2001-01-07");
-		map.setEndTime("2015-01-07");
-		List<Menu> list = menuDao.selectByRequire(map);
-		assertEquals(1, list.size());
-	}
+
 }
