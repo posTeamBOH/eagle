@@ -24,7 +24,7 @@ public class RorderController {
 	@Autowired
 	OrderService orderService;
 	@Autowired
-	RorderService roserService;
+	RorderService rorderService;
 	
 	//后台人员根据条件查询订单，得到订单、订单中的菜品数量
 	@RequestMapping(value="/getOrders")
@@ -33,7 +33,7 @@ public class RorderController {
 				@RequestParam("begin") String beginTime, 
 				@RequestParam("end") String endTime) {
 		List<Order> orders = orderService.selectByRequire(orderId, beginTime, endTime);
-		HashMap<String, Object> menuNum = roserService.getMenuNum(orders);
+		HashMap<String, Object> menuNum = rorderService.getMenuNum(orders);
 		menuNum.put("orders", orders);
 		return menuNum;
 	}
@@ -41,7 +41,7 @@ public class RorderController {
 	@RequestMapping("/selectMenuByOrderId")
 	@ResponseBody
 	public List<MenuNum> selectMenuByOrderId(@RequestParam("orderId") String orderId){
-		List<MenuNum> list = roserService.selectMenuByOrderId(orderId);
+		List<MenuNum> list = rorderService.selectMenuByOrderId(orderId);
 		return list;
 	}
 }
