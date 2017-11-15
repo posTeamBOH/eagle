@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.choice.eagle.dao.MenuDao;
 import com.choice.eagle.entity.Menu;
-import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.MenuService;
+import com.choice.eagle.util.UuidUtil;
 
 @Service
 public class MenuServiceImpl implements MenuService{
@@ -42,6 +42,7 @@ public class MenuServiceImpl implements MenuService{
 	@Override
 	public int  insertMenu(Menu menu) {
 		// TODO Auto-generated method stub
+		menu.setMenuId(UuidUtil.getId());
 		return menuDao.insertMenu(menu);
 	}
 

@@ -58,13 +58,13 @@
 	   resultType="Menu">  
 	select * from sys_menu  
 	<where>   
-	  <if test="menuName != null">  
-	       menu_name = #{menuName}  
+	  <if test="menuId != null">  
+	       menu_id = #{menuId}  
 	  </if>   
 	  <if test="beginTime != null and beginTime != ''">
 	  AND menu_date <![CDATA[>=]]> #{beginTime}</if> 
 	<if test="endTime != null and endTime != ''">
-	AND menu <![CDATA[<=]]>#{endTime}</if>  
+	AND menu_date <![CDATA[<=]]>#{endTime}</if>  
 	</where> 
 	 	order by menu_num desc
 	</select>  
@@ -83,4 +83,9 @@
 	<select id="countLess" resultType="int">  
 		select count(*) from sys_menu where menu_num<![CDATA[<=]]>menuNum
 	</select>
+	
+	<select id="selectNameById" resultType="String">
+		select * from sys_menu where menu_id = #{0}
+	</select>
+	
 </mapper>
