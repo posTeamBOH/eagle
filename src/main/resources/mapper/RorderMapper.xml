@@ -4,12 +4,14 @@
 
 
    <select id="selectMenuByOrderId" parameterType="String" resultMap="BaseResultMap">
-  	SELECT menu_name menuId, COUNT(*) count FROM sys_rorder  where order_id=#{orderId} group by menuId
+  	SELECT sys_menu.menu_name menuId, COUNT(*) count,sys_menu.menu_money money FROM sys_rorder,sys_menu  
+  	where order_id=#{orderId} and sys_rorder.menu_id=sys_menu.menu_id group by menuId, money
   </select>
   
   <resultMap id="BaseResultMap" type="MenuNum" >
        <id column="menuId" property="menuId"  />
     <result column="count" property="count"  />
+    <result column="money" property="money"  />
   </resultMap>
    <update id="updateMenuStatus" parameterType="String">
   	 update sys_rorder
