@@ -23,4 +23,10 @@
   	select count(rorder_id) from sys_rorder
   	where order_id = #{orderId}
   </select>
+  <!-- 点击结账改变桌子，订单，订单联系表中的状态 -->
+  <update id="updateAllStatus" parameterType="String">
+  	 update sys_tables set tables_type='0' where tables_id=#{0};
+  	 update sys_order set order_type='0' where order_id=#{1};
+  	 update sys_rorder set rorder_type='0' where order_id=#{1}
+  </update>
 </mapper>

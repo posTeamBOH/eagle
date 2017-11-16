@@ -16,4 +16,6 @@ public interface RorderDao {
 	//点击上菜改变订单联系表中的菜品状态
 	int updateMenuStatus(String orderId,String menuName);
 	
+	//点击结账改变桌子，订单，订单联系表中的状态
+	int updateAllStatus(String tablesId,String orderId);
 }
