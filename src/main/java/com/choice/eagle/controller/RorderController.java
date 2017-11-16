@@ -87,5 +87,12 @@ public class RorderController {
 		int i=rorderService.updateAllStatus(tableId, orderId);
 		return (i == 0) ? "false" : "true";
 	}
+	
+	//删除菜单明细
+	@RequestMapping("/deleteRorder")
+	@ResponseBody
+	public String deleteRorder(String orderId, String menuName) {
+		return rorderService.deleteRorder(orderId, menuName) > 0 ? "true" : "false";
+	}
   
 }

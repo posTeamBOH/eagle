@@ -24,4 +24,7 @@ public interface RorderService {
 		String insertOrder(String tableId, String orderDate, String orderMoney, String orderNum, String orderRemark, HashMap<String, Integer> menuNums);
 		//点击结账改变桌子，订单状态
 		int updateAllStatus(String tableId,String orderId);
+		
+		//删除菜单明细
+		int deleteRorder(String orderId, String menuName);
 }
