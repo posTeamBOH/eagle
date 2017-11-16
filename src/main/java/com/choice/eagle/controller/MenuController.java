@@ -36,8 +36,8 @@ public class MenuController {
 	@RequestMapping(value="/getMenu.do", method=RequestMethod.POST)
 	@ResponseBody
 	public List<Menu> getMenus(@RequestParam("menuId") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("end") String endTime) {
+		if (menuId == "") menuId = null;
 		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
-		
 		return menus;
 
 	}
