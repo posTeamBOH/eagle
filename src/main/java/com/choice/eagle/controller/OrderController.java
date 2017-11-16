@@ -18,6 +18,9 @@ import com.choice.eagle.service.RorderService;
 
 @Controller
 @RequestMapping("/order")
+<<<<<<< HEAD
+public class OrderController {
+=======
 public class OrderController {	
 	
 	@Autowired
@@ -33,4 +36,5 @@ public class OrderController {
 		 return list;
 		
 	}
+>>>>>>> 84afe1e5002d7bccd42a8ec9cf921613d0da4880
 }
