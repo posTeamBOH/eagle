@@ -41,10 +41,12 @@ public class MenuController {
 	/**
 	 * 后台人员根据条件查询菜
 	 */
-	@RequestMapping(value="/getMenu.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getMenu", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getMenus(@RequestParam("menuId") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("end") String endTime) {
+	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("endTime") String endTime) {
 		if (menuId == "") menuId = null;
+		if (beginTime == "") beginTime = null;
+		if (endTime == "") endTime = null;
 		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
 		return menus;
 
@@ -111,5 +113,4 @@ public class MenuController {
 		List<Menu> list = menuService.selectByCuisine(CuisineId);
 		return list;
 	}
-
 }
