@@ -38,6 +38,7 @@ public class RorderController {
 		return orders;
 	}
 
+	//通过订单编号得到订单中菜品种类和数量
 	@RequestMapping("/selectMenuByOrderId")
 	@ResponseBody
 	public List<MenuNum> selectMenuByOrderId(@RequestParam("orderId") String orderId){
@@ -45,6 +46,7 @@ public class RorderController {
 		return list;
 	}
 	
+	//首次加载页面时给的数据
 	@RequestMapping("/empty")
 	@ResponseBody
 	public List<Order> emptygetOrderByRequest(){
