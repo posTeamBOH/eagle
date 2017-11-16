@@ -14,13 +14,13 @@
     <result column="money" property="money"  />
   </resultMap>
    <update id="updateMenuStatus" parameterType="String">
-  	 update sys_rorder
-  	 set rorder_type = '1'
-  	 where rorder_id = #{rorderId}
+  	 update sys_rorder SET rorder_type='1'  
+  	 where order_id = #{orderId} 
+  	 and menu_id = (select menu_id from sys_menu where menu_name=#{menuName})
   </update>
   
   <select id="countAllMenuByOrderId" parameterType="String" resultType="int">
-  	select count(*) from sys_rorder
+  	select count(rorder_id) from sys_rorder
   	where order_id = #{orderId}
   </select>
   
@@ -29,4 +29,18 @@
 		insert into sys_rorder
   	values (#{orderId}, #{menuId}, #{rorderId}, #{rorderType})
 </insert>
+  <!-- 点击结账改变桌子状态 -->
+  	<update id = "updateTableStatus" parameterType = "String">
+  	update sys_tables
+  	set tables_type = #{status}
+  	where tables_id = #{tableId}
+  </update>
+  <!-- 点击结账改变订单状态 -->
+  <update id="updateOrderStatus" parameterType="String">
+  	 update sys_order set order_type='0' where order_id=#{orderId}
+  </update>
+ <!-- 点击结账判断rorder中没上菜的个数-->
+  <select id="countNotUpdate" parameterType="String" resultType="int">
+select count(*) from sys_rorder WHERE order_id=#{orderId} and rorder_type='0'
+  </select>
 </mapper>

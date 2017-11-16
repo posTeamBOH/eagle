@@ -37,9 +37,9 @@ public class RorderServiceImpl implements RorderService{
 
 
 	@Override
-	public void updateMenuStatus(String orderId) {
+	public int updateMenuStatus(String orderId,String menuName) {
 		// TODO Auto-generated method stub
-		//rorderDao.updateMenuStatus(orderId);
+		return rorderDao.updateMenuStatus(orderId, menuName);
 	}
 
 	//根据订单号查询菜品数量
@@ -94,10 +94,21 @@ public class RorderServiceImpl implements RorderService{
 		return "true";
 		
 	}
-
-
-	
-
+	//点击结账改变桌子，订单，订单联系状态
+	@Override
+	@Transactional
+	public int updateAllStatus(String tableId, String orderId) {
+		int i=rorderDao.countNotUpdate(orderId);
+		if(i==0) {
+			rorderDao.updateTableStatus(tableId, "0");
+			rorderDao.updateOrderStatus(orderId);
+			return 1;
+		}else {
+			return 0;
+		}
+		
+		
+	}
 
 
 }
