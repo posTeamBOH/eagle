@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.OrderService;
 import com.choice.eagle.service.RorderService;
@@ -35,6 +36,15 @@ public class RorderController {
 		HashMap<String, Integer> menuNum = roserService.getMenuNum(orders);
 		
 	}
+	
+	//提交订单
+	@RequestMapping("/commitOrder")
+	@ResponseBody
+	public String commitOrder(String tableId, String orderId, List<MenuNum> menuNums) {
+		
+		return "";
+	}
+	
 	
 
 }
