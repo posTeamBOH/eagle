@@ -57,8 +57,7 @@
    
    
    <!-- 查  根据条件查询菜单（注意排序） -->
-	 <select id="selectByRequire" parameterType="ObjectMap" 
-	   resultType="Menu" >  
+	 <select id="selectByRequire"  resultType="Menu" >  
 	select * from sys_menu  
 	<where>   
 	  <if test="menuId != null">  
