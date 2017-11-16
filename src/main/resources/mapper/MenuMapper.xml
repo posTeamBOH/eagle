@@ -42,15 +42,17 @@
    	<!-- 改-->
    	<!-- 测试完成 -->
    	<update id="updateMenu" parameterType="Menu">
-   		update sys_menu set 
-   		cuisine_id = #{cuisineId},
-   		menu_name = #{menuName},
-   		menu_money = #{menuMoney},
-   		menu_date = #{menuDate},
-   		menu_num = #{menuNum},
-   		menu_fir = #{menuFir},
-   		menu_mate = #{menuMate},
-   		menu_rem = #{menuRem}	
+   		update sys_menu
+   		<set>
+	   		<if test="cuisineId != null">cuisine_id = #{cuisineId},</if>
+	   		<if test="menuName != null">menu_name = #{menuName},</if>
+	   		<if test="menuMoney != null">menu_money = #{menuMoney},</if>
+	   		<if test="menuDate != null">menu_date = #{menuDate},</if>
+	   		<if test="menuNum != null">menu_num = #{menuNum},</if>
+	   		<if test="menuFir != null">menu_fir = #{menuFir},</if>
+	   		<if test="menuMate != null">menu_mate = #{menuMate},</if>
+	   		<if test="menuRem != null">menu_rem = #{menuRem}</if>
+		</set>
    		where menu_id = #{menuId}	
    </update>
    

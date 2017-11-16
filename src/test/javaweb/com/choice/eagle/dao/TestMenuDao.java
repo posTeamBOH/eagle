@@ -64,7 +64,7 @@ public class TestMenuDao extends BaseTest{
 	public void testupdateMenu() {
 		Menu menu = new Menu();
 		menu.setCuisineId("C1001");
-		menu.setMenuDate("2012-01-02");
+		menu.setMenuDate("2015-01-02");
 		menu.setMenuId("M1004");
 		menu.setMenuName("终极菜品");
 		menu.setMenuFir("ZZCP");
