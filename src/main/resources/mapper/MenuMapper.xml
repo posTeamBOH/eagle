@@ -59,12 +59,7 @@
    
    
    <!-- 查  根据条件查询菜单（注意排序） -->
-<<<<<<< HEAD
 	 <select id="selectByRequire"  resultType="Menu" >  
-=======
-	 <select id="selectByRequire"
-	   resultType="Menu" >  
->>>>>>> 84afe1e5002d7bccd42a8ec9cf921613d0da4880
 	select * from sys_menu  
 	<where>   
 	  <if test="menuId != null">  
