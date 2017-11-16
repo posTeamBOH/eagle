@@ -18,5 +18,10 @@ private CuisineDao cuisineDao;
 		// TODO Auto-generated method stub
 		return cuisineDao.selectAllCuisines();
 	}
+	@Override
+	public String selectCuisineId(String cuisineName) {
+		// TODO Auto-generated method stub
+		return cuisineDao.selectCuisineId(cuisineName);
+	}
 
 }

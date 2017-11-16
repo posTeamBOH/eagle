@@ -11,5 +11,8 @@
    		select * from sys_cuisine
    </select>
    
+   <select id="selectCuisineId" resultType="String">
+   		select cuisine_id from sys_cuisine where cuisine_name = #{cuisineName}
+   </select>
  
 </mapper>

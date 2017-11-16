@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.choice.eagle.entity.Menu;
+import com.choice.eagle.service.CuisineService;
 import com.choice.eagle.service.MenuService;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 
@@ -24,6 +25,9 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 public class MenuController {
 	@Autowired
 	private MenuService menuService;
+	
+	@Autowired
+	private CuisineService cuisineService;
 	
 //	//得到菜品
 //	@RequestMapping(value="/getMenu.do")
@@ -71,7 +75,17 @@ public class MenuController {
 	//后台人员添加菜品
 	@RequestMapping(value="/addMenu.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String add(Menu menu) {
+	public String add(HttpServletRequest request) {
+		Menu menu = new Menu();
+		menu.setMenuName(request.getParameter("AfoodName"));
+		menu.setMenuMoney(request.getParameter("AFoodPrice"));
+		menu.setMenuFir(request.getParameter("AfoodWord"));
+		menu.setMenuNum(request.getParameter("AddFoodSize"));
+		menu.setMenuMate(request.getParameter("AddFoodCL"));
+		menu.setMenuRem(request.getParameter("AddFoodMark"));
+		String cuisineName = request.getParameter("AddfoodClass");
+		String cuisineId = cuisineService.selectCuisineId(cuisineName);
+		menu.setCuisineId(cuisineId);
 		return menuService.insertMenu(menu) == 0 ? "false" : "true";
 	}
 

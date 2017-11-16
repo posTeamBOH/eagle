@@ -26,4 +26,18 @@ public class TestRorderDao extends BaseTest {
 		assertEquals(1, rorderDao.countAllMenuByOrderId("O1001"));
 	}
 	
+	@Test
+	public void testupdateOrderStatus() {
+		assertEquals(1, rorderDao.updateOrderStatus("O1001"));
+	}
+	
+	@Test
+	public void testupdateTableStatus() {
+		assertEquals(1, rorderDao.updateTableStatus("T1001", "没人"));
+	}
+	
+	@Test
+	public void testcountNotUpdate() {
+		assertEquals(3, rorderDao.countNotUpdate("O1001"));
+	}
 }

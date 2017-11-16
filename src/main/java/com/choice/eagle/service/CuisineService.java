@@ -6,4 +6,6 @@ import com.choice.eagle.entity.Cuisine;
 
 public interface CuisineService {
 	List<Cuisine> selectAllCuisines();
+	
+	String selectCuisineId(String cuisineName);
 }

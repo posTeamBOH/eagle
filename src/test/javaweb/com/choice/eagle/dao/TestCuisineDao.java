@@ -20,4 +20,9 @@ public class TestCuisineDao extends BaseTest {
 		List<Cuisine> list = cuisineDao.selectAllCuisines();
 		assertEquals("C1001", list.get(0).getCuisineId());
 	}
+	
+	@Test
+	public void testselectCuisineId() {
+		assertEquals("C1001", cuisineDao.selectCuisineId("热菜"));
+	}
 }

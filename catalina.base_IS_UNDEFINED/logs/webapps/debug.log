@@ -1,0 +1,24 @@
+2017-11-16 15:03:48.619 [main] DEBUG com.choice.eagle.dao.RorderDao.updateTableStatus - ==>  Preparing: update sys_tables set tables_type = ? where tables_id = ? 
+2017-11-16 15:03:48.667 [main] DEBUG com.choice.eagle.dao.RorderDao.updateTableStatus - ==> Parameters: 没人(String), T1001(String)
+2017-11-16 15:03:48.739 [main] DEBUG com.choice.eagle.dao.RorderDao.updateTableStatus - <==    Updates: 1
+2017-11-16 15:05:09.316 [main] DEBUG com.choice.eagle.dao.RorderDao.updateOrderStatus - ==>  Preparing: update sys_order set order_type='0' where order_id=? 
+2017-11-16 15:05:09.359 [main] DEBUG com.choice.eagle.dao.RorderDao.updateOrderStatus - ==> Parameters: O1001(String)
+2017-11-16 15:05:09.387 [main] DEBUG com.choice.eagle.dao.RorderDao.updateOrderStatus - <==    Updates: 1
+2017-11-16 15:08:36.954 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - ==>  Preparing: select count(*) from sys_rorder WHERE order_id=? and rorder_type='0' 
+2017-11-16 15:08:36.999 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - ==> Parameters: O1001(String)
+2017-11-16 15:08:37.016 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - <==      Total: 1
+2017-11-16 15:14:45.068 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - ==>  Preparing: select count(*) from sys_rorder WHERE order_id=? and rorder_type='0' 
+2017-11-16 15:14:45.090 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - ==> Parameters: O1001(String)
+2017-11-16 15:14:45.109 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - <==      Total: 1
+2017-11-16 15:18:32.445 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - ==>  Preparing: select count(*) from sys_rorder WHERE order_id=? and rorder_type='0' 
+2017-11-16 15:18:32.471 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - ==> Parameters: O1001(String)
+2017-11-16 15:18:32.489 [main] DEBUG com.choice.eagle.dao.RorderDao.countNotUpdate - <==      Total: 1
+2017-11-16 15:18:32.495 [main] DEBUG com.choice.eagle.dao.RorderDao.updateTableStatus - ==>  Preparing: update sys_tables set tables_type = ? where tables_id = ? 
+2017-11-16 15:18:32.495 [main] DEBUG com.choice.eagle.dao.RorderDao.updateTableStatus - ==> Parameters: 0(String), T1001(String)
+2017-11-16 15:18:32.497 [main] DEBUG com.choice.eagle.dao.RorderDao.updateTableStatus - <==    Updates: 1
+2017-11-16 15:18:32.497 [main] DEBUG com.choice.eagle.dao.RorderDao.updateOrderStatus - ==>  Preparing: update sys_order set order_type='0' where order_id=? 
+2017-11-16 15:18:32.497 [main] DEBUG com.choice.eagle.dao.RorderDao.updateOrderStatus - ==> Parameters: O1001(String)
+2017-11-16 15:18:32.498 [main] DEBUG com.choice.eagle.dao.RorderDao.updateOrderStatus - <==    Updates: 1
+2017-11-16 15:44:45.862 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectCuisineId - ==>  Preparing: select cuisine_id from sys_cuisine where cuisine_name = ? 
+2017-11-16 15:44:45.913 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectCuisineId - ==> Parameters: 热菜(String)
+2017-11-16 15:44:45.929 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectCuisineId - <==      Total: 1

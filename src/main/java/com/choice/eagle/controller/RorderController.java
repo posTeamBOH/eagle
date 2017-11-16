@@ -18,7 +18,6 @@ import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.OrderService;
 import com.choice.eagle.service.RorderService;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 
 @RestController
 @RequestMapping("/roder")
@@ -100,5 +99,4 @@ public class RorderController {
 		int i=rorderService.updateAllStatus(tableId, orderId);
 		return (i == 0) ? "false" : "true";
 	}
-  
 }

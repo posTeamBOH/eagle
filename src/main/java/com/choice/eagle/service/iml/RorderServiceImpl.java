@@ -62,7 +62,7 @@ public class RorderServiceImpl implements RorderService{
 		 */
 
 	@Override
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional
 	public String insertOrder(String tableId, String orderDate, String orderMoney, String orderNum,
 			String orderRemark, HashMap<String, Integer> menuNum) {
 		String orderId = UuidUtil.getId();
@@ -100,8 +100,13 @@ public class RorderServiceImpl implements RorderService{
 	public int updateAllStatus(String tableId, String orderId) {
 		int i=rorderDao.countNotUpdate(orderId);
 		if(i==0) {
-			rorderDao.updateTableStatus(tableId, "0");
-			rorderDao.updateOrderStatus(orderId);
+			try {
+				rorderDao.updateTableStatus(tableId, "0");
+				rorderDao.updateOrderStatus(orderId);
+			} catch (Exception e) {
+				throw new RuntimeException("updateAllStatus");
+			}
+			
 			return 1;
 		}else {
 			return 0;
