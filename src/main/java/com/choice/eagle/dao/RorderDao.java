@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.entity.MenuNum;
+import com.choice.eagle.entity.Rorder;
 
 public interface RorderDao {
 	
@@ -16,5 +17,6 @@ public interface RorderDao {
 	//改变订单联系表中的菜品状态
 	int updateMenuStatus(String rorderId);
 	
-	//根据订单号查询订单详情
+	//增加菜单明旭
+	int insertRorder(Rorder rorder);
 }

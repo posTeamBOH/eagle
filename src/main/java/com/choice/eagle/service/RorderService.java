@@ -17,4 +17,7 @@ public interface RorderService {
 		
 		//查询定单的菜品数量
 		HashMap<String, Object> getMenuNum(List<Order> orders);
+		
+		//提交订单
+		String insertOrder(String tableId, String orderDate, String orderMoney, String orderNum, String orderRemark, HashMap<String, Integer> menuNums);
 }

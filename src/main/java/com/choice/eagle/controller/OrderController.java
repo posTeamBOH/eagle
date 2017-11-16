@@ -11,20 +11,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.choice.eagle.dao.OrderDao;
 import com.choice.eagle.entity.Cuisine;
 import com.choice.eagle.entity.MenuNum;
+import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.OrderService;
 import com.choice.eagle.service.RorderService;
 
 @Controller
 @RequestMapping("/order")
-<<<<<<< HEAD
-public class OrderController {
-=======
 public class OrderController {	
 	
 	@Autowired
 	private RorderService rorderService;
+	@Autowired
+	private OrderService orderService;
 	//根据订单号查询订单的每个菜品及数量
 	@RequestMapping("/selectMenuByOrderId.do")
 	public @ResponseBody List<MenuNum> selectMenuByOrderId(@Param("orderId")String orderId){
@@ -36,5 +37,12 @@ public class OrderController {
 		 return list;
 		
 	}
->>>>>>> 84afe1e5002d7bccd42a8ec9cf921613d0da4880
+	
+	//根据桌号查询订单
+	@RequestMapping("/getOrderByTable")
+	@ResponseBody
+	public List<Order> getOrderByTable(String tableId) {
+		List<Order> orders  = orderService.selectByTable(tableId);
+		return orders;
+	}
 }

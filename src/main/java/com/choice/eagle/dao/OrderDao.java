@@ -13,4 +13,7 @@ public interface OrderDao {
 	//根据条件查询订单
 	List<Order> selectByRequire(@Param("orderId")String orderId, @Param("beginTime")String beginTime, @Param("endTime") String endTime);
 	
+	//添加订单
+	int insertOrder(Order order);
+	
 }
