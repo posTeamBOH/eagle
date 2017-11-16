@@ -15,8 +15,8 @@
   </resultMap>
    <update id="updateMenuStatus" parameterType="String">
   	 update sys_rorder SET rorder_type='1'  
-  	 where order_id = #{0} 
-  	 and menu_id = (select menu_id from sys_menu where menu_name=#{1})
+  	 where order_id = #{orderId} 
+  	 and menu_id = (select menu_id from sys_menu where menu_name=#{menuName})
   </update>
   
   <select id="countAllMenuByOrderId" parameterType="String" resultType="int">
