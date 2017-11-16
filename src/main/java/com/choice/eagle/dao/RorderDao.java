@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.entity.MenuNum;
+import com.choice.eagle.entity.Rorder;
 
 public interface RorderDao {
 	
@@ -27,4 +28,6 @@ public interface RorderDao {
 	//点击结账判断rorder中没上菜的个数
 	int countNotUpdate(String orderId);
 	
+	//增加菜单明旭
+	int insertRorder(Rorder rorder);
 }

@@ -5,5 +5,11 @@
   <select id="selectStatus" resultType="com.choice.eagle.entity.Table">
   	select * from sys_tables 
   </select>
+  
+  <update id = "updateTableStatus" parameterType = "String">
+  	update sys_tables
+  	set tables_type = #{status}
+  	where tables_id = #{tableId}
+  </update>
 
 </mapper>

@@ -23,6 +23,12 @@
   	select count(rorder_id) from sys_rorder
   	where order_id = #{orderId}
   </select>
+  
+  <!-- 增加订单明细 -->
+<insert id = "insertRorder" parameterType = "Rorder">
+		insert into sys_rorder
+  	values (#{orderId}, #{menuId}, #{rorderId}, #{rorderType})
+</insert>
   <!-- 点击结账改变桌子状态 -->
   	<update id = "updateTableStatus" parameterType = "String">
   	update sys_tables

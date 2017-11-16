@@ -25,7 +25,7 @@ public class RorderController {
 	OrderService orderService;
 	@Autowired
 	RorderService rorderService;
-	
+
 	//后台人员根据条件查询订单，得到订单、订单中的菜品数量
 	@RequestMapping(value="/getOrders", method = RequestMethod.POST)
 	@ResponseBody
@@ -63,6 +63,15 @@ public class RorderController {
 		}
 		return orders;
 	}
+	
+	//提交订单
+	@RequestMapping("/commitOrder")
+	@ResponseBody
+	public String commitOrder(String tableId, String orderDate, String orderMoney, String orderNum,
+			String orderRemark, HashMap<String, Integer> menuNum) {
+		rorderService.insertOrder(tableId, orderDate, orderMoney, orderNum, orderRemark, menuNum);
+		return "";
+}
 	//点击上菜改变订单联系表中的菜品状态
 	@RequestMapping("/updateMenuStatus")
 	@ResponseBody
@@ -78,4 +87,5 @@ public class RorderController {
 		int i=rorderService.updateAllStatus(tableId, orderId);
 		return (i == 0) ? "false" : "true";
 	}
+  
 }
