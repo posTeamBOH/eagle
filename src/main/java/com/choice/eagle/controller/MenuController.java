@@ -29,14 +29,6 @@ public class MenuController {
 	@Autowired
 	private CuisineService cuisineService;
 	
-//	//得到菜品
-//	@RequestMapping(value="/getMenu.do")
-//	public ModelAndView getMenus(@RequestParam("menuId") String menuId, @RequestParam("beginTime") String beginTime) {
-//		Map<String, Object> data = null;
-//		data.put("menus", menuService.selectByMenu());
-//		return new ModelAndView("data", data);
-//	}
-	
 	//得到菜品
 	/**
 	 * 后台人员根据条件查询菜
@@ -90,6 +82,8 @@ public class MenuController {
 		menu.setCuisineId(cuisineId);
 		return menuService.insertMenu(menu) == 0 ? "false" : "true";
 	}
+	
+
 
 	//获得余量不足菜品
 	@RequestMapping("/selectByMenu")
