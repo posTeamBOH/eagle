@@ -22,3 +22,12 @@
 2017-11-16 15:44:45.862 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectCuisineId - ==>  Preparing: select cuisine_id from sys_cuisine where cuisine_name = ? 
 2017-11-16 15:44:45.913 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectCuisineId - ==> Parameters: 热菜(String)
 2017-11-16 15:44:45.929 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectCuisineId - <==      Total: 1
+2017-11-16 16:23:22.720 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num desc 
+2017-11-16 16:23:22.758 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: M1001(String)
+2017-11-16 16:23:22.774 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 0
+2017-11-16 16:24:54.641 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num desc 
+2017-11-16 16:24:54.684 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 测试菜品(String)
+2017-11-16 16:24:54.700 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-16 16:25:34.294 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num desc 
+2017-11-16 16:25:34.326 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 测试菜品(String)
+2017-11-16 16:25:34.345 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1

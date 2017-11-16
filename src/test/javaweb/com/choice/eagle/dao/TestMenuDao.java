@@ -89,4 +89,9 @@ public class TestMenuDao extends BaseTest{
 		assertEquals(1, menuDao.countLess(4));
 	}
 
+	@Test
+	public void testselectByRequire() {
+		List<Menu> list = menuDao.selectByRequire("测试菜品", null, null);
+		assertEquals("M1001", list.get(0).getMenuId());
+	}
 }

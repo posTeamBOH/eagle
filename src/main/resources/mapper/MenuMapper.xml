@@ -63,7 +63,7 @@
 	select * from sys_menu  
 	<where>   
 	  <if test="menuId != null">  
-	       menu_id = #{menuId}  
+	       menu_name = #{menuId}  
 	  </if>   
 	  <if test="beginTime != null and beginTime != ''">
 	  AND menu_date <![CDATA[>=]]> #{beginTime}</if> 
