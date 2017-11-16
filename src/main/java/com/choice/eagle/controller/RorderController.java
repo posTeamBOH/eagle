@@ -2,6 +2,9 @@ package com.choice.eagle.controller;
 
 import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,9 +29,11 @@ public class RorderController {
 	//后台人员根据条件查询订单，得到订单、订单中的菜品数量
 	@RequestMapping(value="/getOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Order> getOrderByRequest(@RequestParam("orderId") String orderId, 
-				@RequestParam("begin") String begin, 
-				@RequestParam("end") String end) {
+	public List<Order> getOrderByRequest(HttpServletRequest request) {
+		String orderId = request.getParameter("orderId");
+		String begin = request.getParameter("begin");
+		String end = request.getParameter("end");
+		if (orderId == "") orderId = null;
 		List<Order> orders = orderService.selectByRequire(orderId, begin, end);
 		HashMap<String, Object> menuNum = rorderService.getMenuNum(orders);
 		for (Order order : orders) {
@@ -56,7 +61,6 @@ public class RorderController {
 			int count = (int) menuNum.get(order.getOrderId());
 			order.setOrderRemark("" + count);
 		}
-		menuNum.put("orders", orders);
 		return orders;
 	}
 	//点击上菜改变订单联系表中的菜品状态
