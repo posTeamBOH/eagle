@@ -30,4 +30,7 @@ public interface RorderDao {
 	
 	//增加菜单明旭
 	int insertRorder(Rorder rorder);
+	
+	//删除菜单明细
+	int deleteRorder(@Param("orderId")String orderId, @Param("menuId")String menuId);
 }
