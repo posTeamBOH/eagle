@@ -16,7 +16,7 @@ public interface RorderDao {
 	int countAllMenuByOrderId(String orderId);
     
 	//点击上菜改变订单联系表中的菜品状态
-	int updateMenuStatus(String orderId,String menuName);
+	int updateMenuStatus(@Param("orderId") String orderId,@Param("menuName") String menuName);
 	
 	//根据桌子号改变桌子状态
 	int updateTableStatus(@Param("tableId")String tableId, @Param("status")String status);
