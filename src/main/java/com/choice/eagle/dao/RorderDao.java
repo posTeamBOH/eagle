@@ -13,7 +13,7 @@ public interface RorderDao {
 	//根据订单号查询订单的菜品总数量
 	int countAllMenuByOrderId(String orderId);
     
-	//改变订单联系表中的菜品状态
-	int updateMenuStatus(String rorderId);
+	//点击上菜改变订单联系表中的菜品状态
+	int updateMenuStatus(String orderId,String menuName);
 	
 }

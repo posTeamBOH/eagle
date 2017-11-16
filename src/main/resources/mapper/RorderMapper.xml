@@ -14,9 +14,9 @@
     <result column="money" property="money"  />
   </resultMap>
    <update id="updateMenuStatus" parameterType="String">
-  	 update sys_rorder
-  	 set rorder_type = '1'
-  	 where rorder_id = #{rorderId}
+  	 update sys_rorder SET rorder_type='1'  
+  	 where order_id = #{0} 
+  	 and menu_id = (select menu_id from sys_menu where menu_name=#{1})
   </update>
   
   <select id="countAllMenuByOrderId" parameterType="String" resultType="int">
