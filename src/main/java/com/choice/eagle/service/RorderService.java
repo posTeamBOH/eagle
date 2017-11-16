@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
 
@@ -17,4 +19,9 @@ public interface RorderService {
 		
 		//查询定单的菜品数量
 		HashMap<String, Object> getMenuNum(List<Order> orders);
+		
+		//提交订单
+		String insertOrder(String tableId, String orderDate, String orderMoney, String orderNum, String orderRemark, HashMap<String, Integer> menuNums);
+		//点击结账改变桌子，订单状态
+		int updateAllStatus(String tableId,String orderId);
 }

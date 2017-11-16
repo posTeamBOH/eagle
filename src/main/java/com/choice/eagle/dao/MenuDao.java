@@ -46,6 +46,9 @@ public interface MenuDao {
 	
 	//余量不足的菜
 	int countLess(int menuNum);
+	
+	//根据菜的名字查询菜的id
+	String selectMenuIdByName(String name);
 }
 
 

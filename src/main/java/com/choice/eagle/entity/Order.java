@@ -12,8 +12,8 @@ public class Order {
 	private String orderId;
 	private String tablesId;
 	private String orderDate;
-	private String orderMoney;
-	private String orderNum;
+	private double orderMoney;
+	private double orderNum;
 	private String orderType;
 	private String orderRemark;
 	public String getOrderId() {
@@ -34,16 +34,16 @@ public class Order {
 	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
-	public String getOrderMoney() {
+	public double getOrderMoney() {
 		return orderMoney;
 	}
-	public void setOrderMoney(String orderMoney) {
+	public void setOrderMoney(double orderMoney) {
 		this.orderMoney = orderMoney;
 	}
-	public String getOrderNum() {
+	public double getOrderNum() {
 		return orderNum;
 	}
-	public void setOrderNum(String orderNum) {
+	public void setOrderNum(double orderNum) {
 		this.orderNum = orderNum;
 	}
 	public String getOrderType() {
@@ -58,5 +58,6 @@ public class Order {
 	public void setOrderRemark(String orderRemark) {
 		this.orderRemark = orderRemark;
 	}
+	
 
 }

@@ -95,4 +95,9 @@
 		select * from sys_menu where menu_id = #{0}
 	</select>
 	
+	<!-- 根据菜的id查询菜的名字 -->
+	<select id = "selectMenuIdByName" resultType = "String" parameterType = "String">
+		select menu_id from sys_menu where menu_name = #{name}
+	</select>
+	
 </mapper>
