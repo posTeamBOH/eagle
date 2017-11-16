@@ -23,9 +23,9 @@ public class RorderServiceImpl implements RorderService{
 
 
 	@Override
-	public void updateMenuStatus(String orderId) {
+	public int updateMenuStatus(String orderId,String menuName) {
 		// TODO Auto-generated method stub
-		rorderDao.updateMenuStatus(orderId);
+		return rorderDao.updateMenuStatus(orderId, menuName);
 	}
 
 	//根据订单号查询菜品数量

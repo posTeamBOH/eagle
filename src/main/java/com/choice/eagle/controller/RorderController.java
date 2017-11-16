@@ -63,4 +63,12 @@ public class RorderController {
 		}
 		return orders;
 	}
+	//点击上菜改变订单联系表中的菜品状态
+	@RequestMapping("/updateMenuStatus")
+	@ResponseBody
+	public String updateMenuStatus(@RequestParam("orderId") String orderId,@RequestParam("menuName") String menuName) {
+		int i=rorderService.updateMenuStatus(orderId, menuName);
+		return (i == 0) ? "false" : "true";
+		
+	}
 }
