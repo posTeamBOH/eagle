@@ -43,4 +43,10 @@
   <select id="countNotUpdate" parameterType="String" resultType="int">
 select count(*) from sys_rorder WHERE order_id=#{orderId} and rorder_type='0'
   </select>
+  
+  <delete id = "deleteRorder" parameterType = "String">
+  	delete from sys_rorder 
+  	where order_id = #{orderId} and menu_id = #{menuId}
+  </delete>
+  
 </mapper>

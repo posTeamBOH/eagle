@@ -3,6 +3,8 @@ package com.choice.eagle.service.iml;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.print.attribute.standard.RequestingUserName;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -113,6 +115,15 @@ public class RorderServiceImpl implements RorderService{
 		}
 		
 		
+	}
+
+
+	//删除菜单明细
+	@Override
+	public int deleteRorder(String orderId, String menuName) {
+		// TODO Auto-generated method stub
+		String menuId = menuDao.selectMenuIdByName(menuName);
+		return rorderDao.deleteRorder(orderId, menuId);
 	}
 
 
