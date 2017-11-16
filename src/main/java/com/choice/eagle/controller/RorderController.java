@@ -71,4 +71,11 @@ public class RorderController {
 		return (i == 0) ? "false" : "true";
 		
 	}
+	//点击结账改变桌子，订单的状态
+	@RequestMapping("/updateAllStatus")
+	@ResponseBody
+	public String updateAllStatus(@RequestParam("orderId") String orderId,@RequestParam("tableId") String tableId) {
+		int i=rorderService.updateAllStatus(tableId, orderId);
+		return (i == 0) ? "false" : "true";
+	}
 }

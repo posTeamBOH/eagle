@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.choice.eagle.dao.RorderDao;
 import com.choice.eagle.entity.MenuNum;
@@ -38,6 +39,22 @@ public class RorderServiceImpl implements RorderService{
 			menuNum.put(order.getOrderId(), num);
 		}
 		return menuNum;
+	}
+
+	//点击结账改变桌子，订单，订单联系状态
+	@Override
+	@Transactional
+	public int updateAllStatus(String tableId, String orderId) {
+		int i=rorderDao.countNotUpdate(orderId);
+		if(i==0) {
+			rorderDao.updateTableStatus(tableId, "0");
+			rorderDao.updateOrderStatus(orderId);
+			return 1;
+		}else {
+			return 0;
+		}
+		
+		
 	}
 
 

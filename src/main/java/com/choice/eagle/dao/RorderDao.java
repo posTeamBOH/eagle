@@ -2,6 +2,8 @@ package com.choice.eagle.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.entity.MenuNum;
 
@@ -16,6 +18,13 @@ public interface RorderDao {
 	//点击上菜改变订单联系表中的菜品状态
 	int updateMenuStatus(String orderId,String menuName);
 	
-	//点击结账改变桌子，订单，订单联系表中的状态
-	int updateAllStatus(String tablesId,String orderId);
+	//根据桌子号改变桌子状态
+	int updateTableStatus(@Param("tableId")String tableId, @Param("status")String status);
+
+	//点击结账改变订单状态
+	int updateOrderStatus(String orderId);
+
+	//点击结账判断rorder中没上菜的个数
+	int countNotUpdate(String orderId);
+	
 }
