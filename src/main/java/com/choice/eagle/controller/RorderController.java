@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 @RestController
 @RequestMapping("/roder")
 public class RorderController {
+	
+	Logger logger = LoggerFactory.getLogger(RorderController.class);
 	@Autowired
 	OrderService orderService;
 	@Autowired
@@ -47,7 +51,10 @@ public class RorderController {
 	@RequestMapping("/selectMenuByOrderId")
 	@ResponseBody
 	public List<MenuNum> selectMenuByOrderId(@RequestParam("orderId") String orderId){
+		logger.info("====start====");
 		List<MenuNum> list = rorderService.selectMenuByOrderId(orderId);
+		logger.debug("通过订单编号得到订单中菜品种类和数量");
+		logger.info("====end====");
 		return list;
 	}
 	
@@ -55,12 +62,18 @@ public class RorderController {
 	@RequestMapping("/empty")
 	@ResponseBody
 	public List<Order> emptygetOrderByRequest(){
+		logger.info("====start====");
+		long startTime = System.currentTimeMillis();
 		List<Order> orders = orderService.selectByRequire(null, null, null);
 		HashMap<String, Object> menuNum = rorderService.getMenuNum(orders);
 		for (Order order : orders) {
 			int count = (int) menuNum.get(order.getOrderId());
 			order.setOrderRemark("" + count);
 		}
+		logger.error("emptygetOrderByRequest 方法");
+		long endTime = System.currentTimeMillis();
+		logger.debug("costTime:[{}ms]", endTime - startTime);
+		logger.info("====end====");
 		return orders;
 	}
 	//点击上菜改变订单联系表中的菜品状态
