@@ -24,6 +24,7 @@
  		and	order_date <![CDATA[<=]]> #{endTime}
  		</if>
  	</where>
+ 	limit (pageNo-1)*5,5
  </select>
 
 	<!-- 增加订单 -->

@@ -35,11 +35,11 @@ public class MenuController {
 	 */
 	@RequestMapping(value="/getMenu", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("endTime") String endTime) {
+	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("endTime") String endTime,@RequestParam("pageNo") int pageNo) {
 		if (menuId == "") menuId = null;
 		if (beginTime == "") beginTime = null;
 		if (endTime == "") endTime = null;
-		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
+		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime,pageNo);
 		return menus;
 
 	}

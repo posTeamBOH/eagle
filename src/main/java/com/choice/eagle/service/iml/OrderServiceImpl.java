@@ -19,8 +19,8 @@ public class OrderServiceImpl implements OrderService{
 		return orderDao.selectByTable(tableId);
 	}
 	@Override
-	public List<Order> selectByRequire(String orderId, String beginTime, String endTime) {
-		return orderDao.selectByRequire(orderId, beginTime, endTime);
+	public List<Order> selectByRequire(String orderId, String beginTime, String endTime,int pageNo) {
+		return orderDao.selectByRequire(orderId, beginTime, endTime,pageNo);
 	}
 	
 

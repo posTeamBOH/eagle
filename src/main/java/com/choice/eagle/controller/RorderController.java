@@ -36,8 +36,10 @@ public class RorderController {
 		String orderId = request.getParameter("orderId");
 		String begin = request.getParameter("begin");
 		String end = request.getParameter("end");
+		String pageNoStr = request.getParameter("pageNo");
+		int pageNo=Integer.parseInt(pageNoStr);
 		if (orderId == "") orderId = null;
-		List<Order> orders = orderService.selectByRequire(orderId, begin, end);
+		List<Order> orders = orderService.selectByRequire(orderId, begin, end,pageNo);
 		HashMap<String, Object> menuNum = rorderService.getMenuNum(orders);
 		for (Order order : orders) {
 			int count = (int) menuNum.get(order.getOrderId());
@@ -63,7 +65,7 @@ public class RorderController {
 	public List<Order> emptygetOrderByRequest(){
 		logger.info("====start====");
 		long startTime = System.currentTimeMillis();
-		List<Order> orders = orderService.selectByRequire(null, null, null);
+		List<Order> orders = orderService.selectByRequire(null, null, null,1);
 		HashMap<String, Object> menuNum = rorderService.getMenuNum(orders);
 		for (Order order : orders) {
 			int count = (int) menuNum.get(order.getOrderId());
