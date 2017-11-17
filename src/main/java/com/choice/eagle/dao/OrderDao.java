@@ -11,7 +11,7 @@ public interface OrderDao {
 	List<Order> selectByTable(String tableId);
 	
 	//根据条件查询订单
-	List<Order> selectByRequire(@Param("orderId")String orderId, @Param("beginTime")String beginTime, @Param("endTime") String endTime);
+	List<Order> selectByRequire(@Param("orderId")String orderId, @Param("beginTime")String beginTime, @Param("endTime") String endTime, @Param("pageNo") int pageNo);
 	
 	//添加订单
 	int insertOrder(Order order);
