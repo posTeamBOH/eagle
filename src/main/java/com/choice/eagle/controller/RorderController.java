@@ -33,6 +33,7 @@ public class RorderController {
 	@RequestMapping(value="/getOrders", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Order> getOrderByRequest(HttpServletRequest request) {
+		logger.info("====start====");
 		String orderId = request.getParameter("orderId");
 		String begin = request.getParameter("begin");
 		String end = request.getParameter("end");
@@ -45,6 +46,9 @@ public class RorderController {
 			int count = (int) menuNum.get(order.getOrderId());
 			order.setOrderRemark("" + count);
 		}
+		logger.error("RorderController类   getOrderByRequest方法");
+		logger.debug("参数为:{},{},{},{}", orderId, begin, end, pageNo);
+		logger.info("====end====");
 		return orders;
 	}
 
@@ -54,7 +58,8 @@ public class RorderController {
 	public List<MenuNum> selectMenuByOrderId(@RequestParam("orderId") String orderId){
 		logger.info("====start====");
 		List<MenuNum> list = rorderService.selectMenuByOrderId(orderId);
-		logger.debug("通过订单编号得到订单中菜品种类和数量");
+		logger.error("RorderController类  selectMenuByOrderId方法");
+		logger.debug("参数为:{}" , orderId);
 		logger.info("====end====");
 		return list;
 	}
@@ -71,7 +76,7 @@ public class RorderController {
 			int count = (int) menuNum.get(order.getOrderId());
 			order.setOrderRemark("" + count);
 		}
-		logger.error("emptygetOrderByRequest 方法");
+		logger.error("RorderController empty方法其中使用参数为 null null null 1");
 		long endTime = System.currentTimeMillis();
 		logger.debug("costTime:[{}ms]", endTime - startTime);
 		logger.info("====end====");

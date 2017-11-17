@@ -48,3 +48,18 @@
 2017-11-17 11:02:35.513 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 
 2017-11-17 11:02:35.556 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
 2017-11-17 11:02:35.571 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
+2017-11-17 13:15:45.216 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 limit (pageNo-1)*5,5 
+2017-11-17 13:15:45.245 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
+2017-11-17 13:17:54.097 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 limit (pageNo-1)*5,5 
+2017-11-17 13:17:54.138 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
+2017-11-17 13:21:04.110 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 limit (?-1)*5,5 
+2017-11-17 13:21:04.152 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 1(Integer)
+2017-11-17 13:23:32.523 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 limit (1-1)*5,5 
+2017-11-17 13:23:32.553 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
+2017-11-17 13:27:26.984 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 limit ?,5 
+2017-11-17 13:27:27.023 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 0(Integer)
+2017-11-17 13:27:27.043 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
+2017-11-17 13:40:24.730 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 limit ?,5 
+2017-11-17 13:40:24.775 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 0(Integer)
+2017-11-17 13:40:24.800 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
+2017-11-17 13:40:25.019 [main] DEBUG com.choice.eagle.service.TestRedis - TestRedis类 testRedis方法

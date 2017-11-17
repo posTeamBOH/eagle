@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService{
 	}
 	@Override
 	public List<Order> selectByRequire(String orderId, String beginTime, String endTime,int pageNo) {
-		return orderDao.selectByRequire(orderId, beginTime, endTime,pageNo);
+		return orderDao.selectByRequire(orderId, beginTime, endTime, (pageNo-1)*5);
 	}
 	
 
