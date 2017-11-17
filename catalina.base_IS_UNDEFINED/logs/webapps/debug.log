@@ -45,3 +45,6 @@
 2017-11-17 10:20:52.624 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 
 2017-11-17 10:20:52.657 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
 2017-11-17 10:20:52.678 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
+2017-11-17 11:02:35.513 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 
+2017-11-17 11:02:35.556 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
+2017-11-17 11:02:35.571 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
