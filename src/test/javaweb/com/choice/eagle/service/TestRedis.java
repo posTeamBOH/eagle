@@ -33,7 +33,7 @@ public class TestRedis extends BaseTest{
 	@Test
 	public void testRedis() {
 		String key = CESHIKEY;
-		List<Order> ceshilist = orderService.selectByRequire(null, null, null);
+		List<Order> ceshilist = orderService.selectByRequire(null, null, null, 1);
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonString = null;
 		try {
