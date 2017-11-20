@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.choice.eagle.cache.JedisUtil;
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.service.CuisineService;
 import com.choice.eagle.service.MenuService;
@@ -37,6 +38,7 @@ public class MenuController {
 	
 	//得到菜品
 	/**
+	 * 此处的menuId为菜品名称
 	 * 后台人员根据条件查询菜
 	 */
 	@RequestMapping(value="/getMenu", method=RequestMethod.POST)

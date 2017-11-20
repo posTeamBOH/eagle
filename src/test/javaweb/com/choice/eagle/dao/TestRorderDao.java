@@ -40,4 +40,9 @@ public class TestRorderDao extends BaseTest {
 	public void testcountNotUpdate() {
 		assertEquals(3, rorderDao.countNotUpdate("O1001"));
 	}
+	
+	@Test
+	public void testinsertOrder() {
+		
+	}
 }

@@ -5,11 +5,14 @@ import java.util.List;
 
 import javax.print.attribute.standard.RequestingUserName;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.choice.eagle.cache.JedisUtil;
 import com.choice.eagle.dao.MenuDao;
 import com.choice.eagle.dao.OrderDao;
 import com.choice.eagle.dao.RorderDao;
@@ -23,6 +26,7 @@ import com.fasterxml.jackson.databind.node.DoubleNode;
 
 @Service
 public class RorderServiceImpl implements RorderService{
+	Logger logger = LoggerFactory.getLogger(RorderServiceImpl.class);
 	@Autowired
 	private RorderDao rorderDao;
 	@Autowired
@@ -31,6 +35,10 @@ public class RorderServiceImpl implements RorderService{
 	private OrderDao orderDao;
 	@Autowired
 	private MenuDao menuDao;
+	@Autowired
+	private JedisUtil.Strings jedisStrings;
+	@Autowired
+	private JedisUtil.Keys jedisKeys;
 	
 	@Override
 	public List<MenuNum> selectMenuByOrderId(String orderId) {
@@ -38,11 +46,11 @@ public class RorderServiceImpl implements RorderService{
 		return rorderDao.selectMenuByOrderId(orderId);
 	}
 
-
+	//上菜改变状态
 	@Override
 	public int updateMenuStatus(String orderId,String menuName) {
-		// TODO Auto-generated method stub
-		return rorderDao.updateMenuStatus(orderId, menuName);
+		int num = rorderDao.updateMenuStatus(orderId, menuName);
+		return num;
 	}
 
 	//根据订单号查询菜品数量
@@ -97,25 +105,29 @@ public class RorderServiceImpl implements RorderService{
 		return "true";
 		
 	}
+	
 	//点击结账改变桌子，订单，订单联系状态
 	@Override
 	@Transactional
 	public int updateAllStatus(String tableId, String orderId) {
+		logger.info("====start====");
+		//查询订单中没上的菜的个数
 		int i=rorderDao.countNotUpdate(orderId);
 		if(i==0) {
 			try {
 				rorderDao.updateTableStatus(tableId, "0");
 				rorderDao.updateOrderStatus(orderId);
 			} catch (Exception e) {
+				logger.error("桌位状态改变出错");
 				throw new RuntimeException("updateAllStatus");
 			}
-			
+			logger.debug("参数:{},{}", tableId, orderId);
+			logger.info("====end====");
 			return 1;
 		}else {
+			logger.info("====end====");
 			return 0;
 		}
-		
-		
 	}
 
 

@@ -65,12 +65,12 @@ public class TestMenuDao extends BaseTest{
 		Menu menu = new Menu();
 		menu.setCuisineId("C1001");
 		menu.setMenuDate("2015-01-02");
-		menu.setMenuId("M1004");
-		menu.setMenuName("终极菜品");
-		menu.setMenuFir("ZZCP");
+		menu.setMenuId("M1001");
+		menu.setMenuName("风味茄子");
+		menu.setMenuFir("CSCP");
 		menu.setMenuMate("44444444");
 		menu.setMenuMoney("400");
-		menu.setMenuNum("5");
+		menu.setMenuNum("6");
 		assertEquals(1, menuDao.updateMenu(menu));
 	}
 
@@ -91,7 +91,18 @@ public class TestMenuDao extends BaseTest{
 
 	@Test
 	public void testselectByRequire() {
-		List<Menu> list = menuDao.selectByRequire("测试菜品", null, null);
+		List<Menu> list = menuDao.selectByRequire("风味茄子", null, null);
 		assertEquals("M1001", list.get(0).getMenuId());
+	}
+	
+	@Test
+	public void testselectMenuIdByName() {
+		assertEquals("M1005", menuDao.selectMenuIdByName("可乐"));
+	}
+	
+	@Test
+	public void testselectNameById() {
+		Menu menu = menuDao.selectNameById("M1001");
+		assertEquals("风味茄子", menu.getMenuName());
 	}
 }

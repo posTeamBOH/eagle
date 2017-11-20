@@ -91,7 +91,7 @@
 		select count(*) from sys_menu where menu_num<![CDATA[<=]]>#{menuNum}
 	</select>
 	
-	<select id="selectNameById" resultType="String">
+	<select id="selectNameById" resultType="Menu">
 		select * from sys_menu where menu_id = #{0}
 	</select>
 	

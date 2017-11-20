@@ -16,4 +16,10 @@ public class TestRorderService extends BaseTest {
 	public void testupdateAllStatus() {
 		assertEquals(1, rorderService.updateAllStatus("T1001", "O1001"));
 	}
+	
+	@Test
+	public void testupdateMenuStatus() {
+		int a = rorderService.updateMenuStatus("O1001", "风味茄子");
+		assertEquals(2, a);
+	}
 }
