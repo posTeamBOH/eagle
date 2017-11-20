@@ -76,19 +76,19 @@
 	   <!-- 统计菜种类合计 -->
 	   <!-- 测试完成 -->
 	<select id="countKinds" resultType="int">  
-		select count(*) from sys_menu order by menu_id
+		select count(menu_id) from sys_menu order by menu_id
 	</select> 
    
   	<!-- 统计菜种类合计 -->
   	<!-- 测试完成 -->
 	<select id="countEmpty" resultType="int">  
-		select count(*) from sys_menu where menu_num=0
+		select count(menu_id) from sys_menu where menu_num=0
 	</select> 
    
    <!-- 余量不足的菜 -->
    <!-- 测试完成 -->
 	<select id="countLess" resultType="int">  
-		select count(*) from sys_menu where menu_num<![CDATA[<=]]>#{menuNum}
+		select count(menu_id) from sys_menu where menu_num<![CDATA[<=]]>#{menuNum}
 	</select>
 	
 	<select id="selectNameById" resultType="Menu">

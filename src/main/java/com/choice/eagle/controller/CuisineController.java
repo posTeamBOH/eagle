@@ -21,7 +21,7 @@ public class CuisineController {
 	
 	@RequestMapping("/selectAllCuisines.do")
 	public @ResponseBody List<Cuisine> selectAllCuisines(HttpServletResponse response){
-		
+		 response.setHeader("Access-Control-Allow-Origin", "*");
 		 List<Cuisine> list = new ArrayList<Cuisine>();
 		 
 		 list = cuisineService.selectAllCuisines() ;

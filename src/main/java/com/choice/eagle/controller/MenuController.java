@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
@@ -43,7 +44,9 @@ public class MenuController {
 	 */
 	@RequestMapping(value="/getMenu", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("endTime") String endTime) {
+	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime,
+			@RequestParam("endTime") String endTime, HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		logger.info("====start====");
 		if (menuId == "") menuId = null;
 		if (beginTime == "") beginTime = null;
@@ -58,7 +61,8 @@ public class MenuController {
 	//后台人员点击删除
 	@RequestMapping(value="/deleteMenu.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String deleteMenu(Menu menu) {
+	public String deleteMenu(Menu menu, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		return menuService.deleteByMenuId(menu.getMenuId()) == 0  ? "false" : "true";
 	}
 //	
@@ -72,7 +76,8 @@ public class MenuController {
 	//后台人员确定修改菜品
 	@RequestMapping(value="/update.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String updateMenu(Menu menu) {
+	public String updateMenu(Menu menu, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		return menuService.updateMenu(menu) == 0 ? "false" : "true";
 	}
 	
@@ -80,7 +85,8 @@ public class MenuController {
 	//后台人员添加菜品
 	@RequestMapping(value="/addMenu.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String add(HttpServletRequest request) {
+	public String add(HttpServletRequest request, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		logger.info("====start====");
 		Menu menu = new Menu();
 		menu.setMenuName(request.getParameter("AfoodName"));
@@ -109,14 +115,17 @@ public class MenuController {
 	//获得余量不足菜品
 	@RequestMapping("/selectByMenu")
 	@ResponseBody
-	public List<Menu> selectByMenu(){
+	public List<Menu> selectByMenu(HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		return menuService.selectByMenu();
 	}
 	
 	//根据菜名模糊查询
 	@RequestMapping("/selectByName")
 	@ResponseBody
-	public List<Menu> selectByName(@Param("name") String name, HttpServletRequest request){
+	public List<Menu> selectByName(@Param("name") String name, HttpServletRequest request
+			, HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		List<Menu> list = menuService.selectByName(name);
 		return list;
 	}

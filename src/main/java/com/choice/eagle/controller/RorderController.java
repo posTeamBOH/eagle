@@ -40,7 +40,7 @@ public class RorderController {
 	private JedisUtil.Strings jedisString;
 
 	//后台人员根据条件查询订单，得到订单、订单中的菜品数量
-	@RequestMapping(value="/getOrders", method = RequestMethod.GET)
+	@RequestMapping(value="/getOrders", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Order> getOrderByRequest(HttpServletRequest request) {
 		logger.info("====start====");
