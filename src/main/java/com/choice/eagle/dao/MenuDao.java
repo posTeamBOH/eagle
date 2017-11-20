@@ -36,7 +36,7 @@ public interface MenuDao {
 	
 	//查
 	//根据条件查询菜单（注意排序）
-	List<Menu> selectByRequire(@Param("menuId")String menuId, @Param("beginTime")String beginTime, @Param("endTime")String endTime,@Param("pageNo")int pageNo);
+	List<Menu> selectByRequire(@Param("menuId")String menuId, @Param("beginTime")String beginTime, @Param("endTime")String endTime);
 		
 	//计菜种类合计
 	int countKinds();

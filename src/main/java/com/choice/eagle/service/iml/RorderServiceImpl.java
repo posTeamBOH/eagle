@@ -30,7 +30,8 @@ public class RorderServiceImpl implements RorderService{
 	@Autowired
 	private OrderDao orderDao;
 	@Autowired
-	MenuDao menuDao;
+	private MenuDao menuDao;
+	
 	@Override
 	public List<MenuNum> selectMenuByOrderId(String orderId) {
 		// TODO Auto-generated method stub

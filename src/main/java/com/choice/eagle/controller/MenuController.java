@@ -41,14 +41,14 @@ public class MenuController {
 	 */
 	@RequestMapping(value="/getMenu", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("endTime") String endTime,@RequestParam("pageNo") int pageNo) {
+	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("endTime") String endTime) {
 		logger.info("====start====");
 		if (menuId == "") menuId = null;
 		if (beginTime == "") beginTime = null;
 		if (endTime == "") endTime = null;
-		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime,pageNo);
+		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
 		logger.error("MenuController,getMenus方法");
-		logger.debug("参数为:{},{},{},{}", menuId, beginTime, endTime, pageNo);
+		logger.debug("参数为:{},{},{},{}", menuId, beginTime, endTime);
 		logger.info("====end====");
 		return menus;
 	}

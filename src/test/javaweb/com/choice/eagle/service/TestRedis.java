@@ -34,7 +34,7 @@ public class TestRedis extends BaseTest{
 	public void testRedis() {
 		logger.info("====start====");
 		String key = CESHIKEY;
-		List<Order> ceshilist = orderService.selectByRequire(null, null, null, 1);
+		List<Order> ceshilist = orderService.selectByRequire(null, null, null);
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonString = null;
 		try {

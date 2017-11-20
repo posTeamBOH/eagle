@@ -71,7 +71,6 @@
 	AND menu_date <![CDATA[<=]]>#{endTime}</if>  
 	</where> 
 	 	order by menu_num 
-	 	limit #{pageNo},5
 	</select>  
 	  
 	   <!-- 统计菜种类合计 -->
