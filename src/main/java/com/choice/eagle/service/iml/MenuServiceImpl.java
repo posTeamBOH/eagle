@@ -59,9 +59,9 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	@Override
-	public List<Menu> selectByRequire(String menuName, String beginTime, String endTime,int pageNo) {
+	public List<Menu> selectByRequire(String menuName, String beginTime, String endTime) {
 		
-		return menuDao.selectByRequire(menuName, beginTime, endTime,pageNo);
+		return menuDao.selectByRequire(menuName, beginTime, endTime);
 	}
 
 	@Override

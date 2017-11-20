@@ -39,7 +39,7 @@ public class MenuController {
 		if (menuId == "") menuId = null;
 		if (beginTime == "") beginTime = null;
 		if (endTime == "") endTime = null;
-		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime,pageNo);
+		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
 		return menus;
 
 	}

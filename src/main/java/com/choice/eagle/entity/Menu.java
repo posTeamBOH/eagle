@@ -72,4 +72,11 @@ public class Menu {
 	public void setMenuRem(String menuRem) {
 		this.menuRem = menuRem;
 	}
+	@Override
+	public String toString() {
+		return "Menu [menuId=" + menuId + ", cuisineId=" + cuisineId + ", menuName=" + menuName + ", menuMoney="
+				+ menuMoney + ", menuDate=" + menuDate + ", menuNum=" + menuNum + ", menuFir=" + menuFir + ", menuMate="
+				+ menuMate + ", menuRem=" + menuRem + "]";
+	}
+	
 }

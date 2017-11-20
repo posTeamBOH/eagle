@@ -129,6 +129,33 @@
 	    <artifactId>jedis</artifactId>
 	    <version>2.9.0</version>
 	</dependency>
+	
+	<!-- 配置ActiveMq -->
+	<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-all -->
+<dependency>
+    <groupId>org.apache.activemq</groupId>
+    <artifactId>activemq-all</artifactId>
+    <version>5.10.0</version>
+</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->
+<dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-jms</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-pool -->
+<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-pool -->
+<dependency>
+    <groupId>org.apache.activemq</groupId>
+    <artifactId>activemq-pool</artifactId>
+    <version>5.9.0</version>
+</dependency>
+
+
+	
+	
+	
   </dependencies>
   <build>
     <finalName>eagle</finalName>

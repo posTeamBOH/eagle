@@ -1,23 +1,32 @@
 package com.choice.eagle.controller;
 
+/**
+ * 提交订单消息的发送方
+ */
+
 import java.util.HashMap;
 import java.util.List;
 
+import javax.jms.Destination;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
 import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.OrderService;
+import com.choice.eagle.service.ProducerService;
 import com.choice.eagle.service.RorderService;
+import com.choice.eagle.service.iml.ProducerServiceImpl;
 
 @RestController
 @RequestMapping("/roder")
@@ -29,6 +38,14 @@ public class RorderController {
 	@Autowired
 	RorderService rorderService;
 
+	//发送消息需要的
+	@Autowired
+	private ProducerService producerService;
+	
+	@Autowired
+	@Qualifier("queueDestination")
+	private Destination destination;
+	
 	//后台人员根据条件查询订单，得到订单、订单中的菜品数量
 	@RequestMapping(value="/getOrders", method = RequestMethod.POST)
 	@ResponseBody
@@ -78,14 +95,25 @@ public class RorderController {
 		return orders;
 	}
 	
+	
 	//提交订单
 	@RequestMapping("/commitOrder")
 	@ResponseBody
 	public String commitOrder(String tableId, String orderDate, String orderMoney, String orderNum,
 			String orderRemark, HashMap<String, Integer> menuNum) {
-		rorderService.insertOrder(tableId, orderDate, orderMoney, orderNum, orderRemark, menuNum);
-		return "";
-}
+		Order order = new Order();
+		order.setOrderDate(orderDate);
+		order.setOrderMoney(Double.parseDouble(orderMoney));
+		order.setOrderNum(Double.parseDouble(orderNum));
+		order.setOrderRemark(orderRemark);
+		HashMap<String, Object> jsonString =  new HashMap<>();
+		jsonString.put("tableId", tableId);
+		jsonString.put("o", order);
+		jsonString.put("menu", menuNum);
+		producerService.sendMessage(destination, 
+				JSON.toJSONString(jsonString));
+		return "suss";
+	}
 	//点击上菜改变订单联系表中的菜品状态
 	@RequestMapping("/updateMenuStatus")
 	@ResponseBody
@@ -107,5 +135,7 @@ public class RorderController {
 	public String deleteRorder(String orderId, String menuName) {
 		return rorderService.deleteRorder(orderId, menuName) > 0 ? "true" : "false";
 	}
+	
+	
   
 }

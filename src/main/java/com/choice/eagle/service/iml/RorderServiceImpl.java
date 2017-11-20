@@ -14,6 +14,7 @@ import com.choice.eagle.dao.MenuDao;
 import com.choice.eagle.dao.OrderDao;
 import com.choice.eagle.dao.RorderDao;
 import com.choice.eagle.dao.TableDao;
+import com.choice.eagle.entity.Menu;
 import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
 import com.choice.eagle.entity.Rorder;
@@ -60,39 +61,49 @@ public class RorderServiceImpl implements RorderService{
 		/**
 		 * 1.改变桌子的状态0-1
 		 * 2.增加订单
-		 * 3.增加订单明细
+		 * 3.增加订单明细 + 减少菜品数量
 		 */
 
 	@Override
 	@Transactional
-	public String insertOrder(String tableId, String orderDate, String orderMoney, String orderNum,
-			String orderRemark, HashMap<String, Integer> menuNum) {
+	public String insertOrder(String tableId, Order order, HashMap<String, Integer> menuNum) {
 		String orderId = UuidUtil.getId();
+		
+		
+		System.out.println(tableId);
+		System.out.println(order);
+		System.out.println(menuNum);
 		//改变桌子状态
-		tableDao.updateTableStatus(tableId, "1");
+		System.out.println("改变桌子状态");
+		System.out.println(tableDao.updateTableStatus(tableId, "1"));
 		//添加订单
-		Order order = new Order();
+		System.out.println("添加订单");
 		order.setOrderId(orderId);
 		order.setTablesId(tableId);
-		order.setOrderDate(orderDate);
-		order.setOrderMoney(Double.parseDouble(orderMoney));
-		order.setOrderNum(Double.parseDouble(orderNum));
 		order.setOrderType("0");
-		order.setOrderRemark(orderRemark);
 		int aws = orderDao.insertOrder(order);
+		System.out.println("添加菜单明细");
 		//添加订单明细
 		for (String key : menuNum.keySet()) {
-			String menuId = menuDao.selectMenuIdByName(key);
-			for (int i = 0; i < menuNum.get(key); i++) {
+			Menu menu = menuDao.selectByRequire(key, null, null).get(0);
+			String menuId = menu.getMenuId();
+			System.out.println(menuId);
+			int j = menuNum.get(key);
+			System.out.println(j);
+			for (int i = 0; i < (int) menuNum.get(key); i++) {
 				String rorderId = UuidUtil.getId();
 				Rorder rorder = new Rorder();
 				rorder.setOrderId(orderId);
 				rorder.setMenuId(menuId);
 				rorder.setRorderId(rorderId);
 				rorder.setRorderType("0");
+				rorderDao.insertRorder(rorder);
 			}
+			//减少菜品数量
+			String munum = menu.getMenuNum();
+			menu.setMenuNum((Integer.parseInt(munum) - menuNum.get(key)) + "");
+			menuDao.updateMenu(menu);
 		}
-		
 		return "true";
 		
 	}

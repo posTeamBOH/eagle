@@ -1,50 +1,18 @@
-2017-11-17 09:58:57.273 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.CuisineDao
-2017-11-17 09:58:57.348 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.MenuDao
-2017-11-17 09:58:57.378 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.OrderDao
-2017-11-17 09:58:57.405 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.RorderDao
-2017-11-17 09:58:57.424 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.TableDao
-2017-11-17 09:59:43.282 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.CuisineDao
-2017-11-17 09:59:43.334 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.MenuDao
-2017-11-17 09:59:43.352 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.OrderDao
-2017-11-17 09:59:43.363 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.RorderDao
-2017-11-17 09:59:43.390 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.TableDao
-2017-11-17 10:06:11.456 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.CuisineDao
-2017-11-17 10:06:11.509 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.MenuDao
-2017-11-17 10:06:11.530 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.OrderDao
-2017-11-17 10:06:11.542 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.RorderDao
-2017-11-17 10:06:11.565 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.TableDao
-2017-11-17 10:09:48.354 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.CuisineDao
-2017-11-17 10:09:48.409 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.MenuDao
-2017-11-17 10:09:48.429 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.OrderDao
-2017-11-17 10:09:48.440 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.RorderDao
-2017-11-17 10:09:48.465 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.TableDao
-2017-11-17 10:14:18.102 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.CuisineDao
-2017-11-17 10:14:18.156 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.MenuDao
-2017-11-17 10:14:18.177 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.OrderDao
-2017-11-17 10:14:18.188 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.RorderDao
-2017-11-17 10:14:18.211 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.TableDao
-2017-11-17 10:14:18.463 [main] DEBUG com.choice.eagle.dao.OrderDao - Cache Hit Ratio [com.choice.eagle.dao.OrderDao]: 0.0
-2017-11-17 10:14:18.969 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 
-2017-11-17 10:14:19.007 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
-2017-11-17 10:14:19.028 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
-2017-11-17 10:20:18.409 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.CuisineDao
-2017-11-17 10:20:18.459 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.MenuDao
-2017-11-17 10:20:18.488 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.OrderDao
-2017-11-17 10:20:18.498 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.RorderDao
-2017-11-17 10:20:18.551 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.TableDao
-2017-11-17 10:20:18.786 [main] DEBUG com.choice.eagle.dao.OrderDao - Cache Hit Ratio [com.choice.eagle.dao.OrderDao]: 0.0
-2017-11-17 10:20:19.070 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 
-2017-11-17 10:20:19.103 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
-2017-11-17 10:20:19.121 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
-2017-11-17 10:20:51.964 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.CuisineDao
-2017-11-17 10:20:52.016 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.MenuDao
-2017-11-17 10:20:52.035 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.OrderDao
-2017-11-17 10:20:52.048 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.RorderDao
-2017-11-17 10:20:52.074 [main] DEBUG com.choice.eagle.cache.RedisCache - MybatisRedisCache:id=com.choice.eagle.dao.TableDao
-2017-11-17 10:20:52.328 [main] DEBUG com.choice.eagle.dao.OrderDao - Cache Hit Ratio [com.choice.eagle.dao.OrderDao]: 0.0
-2017-11-17 10:20:52.624 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 
-2017-11-17 10:20:52.657 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
-2017-11-17 10:20:52.678 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
-2017-11-17 11:02:35.513 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 
-2017-11-17 11:02:35.556 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: 
-2017-11-17 11:02:35.571 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 3
+2017-11-20 14:09:36.546 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
+2017-11-20 14:09:36.599 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: ÖÕ¼«²ËÆ·(String)
+2017-11-20 14:09:36.620 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 2
+2017-11-20 14:10:16.357 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
+2017-11-20 14:10:16.452 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: anan(String)
+2017-11-20 14:10:16.473 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-20 14:29:25.994 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET cuisine_id = ?, menu_name = ?, menu_money = ?, menu_date = ?, menu_num = ? where menu_id = ? 
+2017-11-20 14:29:26.063 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: C1001(String), anan(String), 100(String), 2005-01-07(String), 11(String), M1001(String)
+2017-11-20 14:29:26.066 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 14:30:21.668 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET cuisine_id = ?, menu_name = ?, menu_money = ?, menu_date = ?, menu_num = ? where menu_id = ? 
+2017-11-20 14:30:21.712 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: C1001(String), anan(String), 100(String), 2005-01-07(String), 11(String), M1001(String)
+2017-11-20 14:30:21.715 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 14:40:33.545 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
+2017-11-20 14:40:33.614 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: anan(String)
+2017-11-20 14:40:33.632 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-20 14:41:12.946 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
+2017-11-20 14:41:13.015 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: anan(String)
+2017-11-20 14:41:13.036 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
