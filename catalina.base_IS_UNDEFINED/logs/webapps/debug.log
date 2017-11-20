@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2017-11-20 14:09:36.546 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
 2017-11-20 14:09:36.599 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: �ռ���Ʒ(String)
 2017-11-20 14:09:36.620 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 2
@@ -16,3 +17,83 @@
 2017-11-20 14:41:12.946 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
 2017-11-20 14:41:13.015 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: anan(String)
 2017-11-20 14:41:13.036 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+=======
+2017-11-20 10:43:08.980 [main] DEBUG com.choice.eagle.dao.RorderDao.updateMenuStatus - ==>  Preparing: update sys_rorder SET rorder_type='1' where order_id = ? and menu_id = (select menu_id from sys_menu where menu_name=?) 
+2017-11-20 10:43:09.031 [main] DEBUG com.choice.eagle.dao.RorderDao.updateMenuStatus - ==> Parameters: O1001(String), 风味茄子(String)
+2017-11-20 10:43:09.135 [main] DEBUG com.choice.eagle.dao.RorderDao.updateMenuStatus - <==    Updates: 2
+2017-11-20 10:43:09.220 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==>  Preparing: select * from sys_order WHERE 1=1 and order_id = ? 
+2017-11-20 10:43:09.221 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - ==> Parameters: O1001(String)
+2017-11-20 10:43:09.247 [main] DEBUG com.choice.eagle.dao.OrderDao.selectByRequire - <==      Total: 1
+2017-11-20 10:43:09.274 [main] DEBUG c.choice.eagle.dao.RorderDao.countAllMenuByOrderId - ==>  Preparing: select count(rorder_id) from sys_rorder where order_id = ? 
+2017-11-20 10:43:09.275 [main] DEBUG c.choice.eagle.dao.RorderDao.countAllMenuByOrderId - ==> Parameters: O1001(String)
+2017-11-20 10:43:09.277 [main] DEBUG c.choice.eagle.dao.RorderDao.countAllMenuByOrderId - <==      Total: 1
+2017-11-20 11:35:53.310 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET menu_name = ? where menu_id = ? 
+2017-11-20 11:35:53.344 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: 兰州拉面(String), M1016(String)
+2017-11-20 11:35:53.409 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 11:35:53.614 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:兰州拉面,null,null
+2017-11-20 11:37:54.967 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET menu_name = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 11:37:54.998 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: 兰州拉面(String), jsijidjfisj(String), M1016(String)
+2017-11-20 11:37:55.062 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 11:37:55.264 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:兰州拉面,null,null
+2017-11-20 11:38:35.865 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
+2017-11-20 11:38:35.901 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 风味茄子(String)
+2017-11-20 11:38:35.917 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-20 11:39:49.068 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET menu_name = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 11:39:49.103 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: 风味茄子(String), jsijidjfisj(String), M1016(String)
+2017-11-20 11:39:49.177 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 11:39:49.375 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:风味茄子,null,null
+2017-11-20 11:40:29.077 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET menu_name = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 11:40:29.115 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: 风味茄子(String), jsijidjfisj(String), M1016(String)
+2017-11-20 11:40:29.175 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 11:40:29.366 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:风味茄子,null,null
+2017-11-20 11:41:51.850 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET menu_name = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 11:41:51.888 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: 风味茄子(String), jsijidjfisj(String), M1016(String)
+2017-11-20 11:41:51.977 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 11:41:52.225 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:风味茄子,null,null
+2017-11-20 11:42:20.600 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET menu_name = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 11:42:20.634 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: 风味茄子(String), jsijidjfisj(String), M1016(String)
+2017-11-20 11:42:20.707 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 11:42:20.880 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:风味茄子,null,null
+2017-11-20 11:43:05.127 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET menu_name = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 11:43:05.166 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: 风味茄子(String), jsijidjfisj(String), M1016(String)
+2017-11-20 11:43:05.231 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 11:43:05.415 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:风味茄子,null,null
+2017-11-20 11:44:24.912 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET menu_name = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 11:44:24.944 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: 风味茄子(String), 111111(String), M1016(String)
+2017-11-20 11:44:25.017 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 11:44:25.183 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
+2017-11-20 11:44:25.184 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 风味茄子(String)
+2017-11-20 11:44:25.201 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 2
+2017-11-20 11:44:25.252 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:Menu [menuId=M1016, cuisineId=null, menuName=风味茄子, menuMoney=null, menuDate=null, menuNum=null, menuFir=null, menuMate=111111, menuRem=null]
+2017-11-20 13:09:00.672 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu order by menu_num 
+2017-11-20 13:09:00.710 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 
+2017-11-20 13:09:00.730 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 16
+2017-11-20 13:09:00.791 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:null,null,null
+2017-11-20 13:09:00.821 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:风味茄子,null,null
+2017-11-20 13:11:35.596 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu order by menu_num 
+2017-11-20 13:11:35.633 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 
+2017-11-20 13:11:35.652 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 16
+2017-11-20 13:11:35.709 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:null,null,null
+2017-11-20 13:11:35.735 [main] DEBUG com.choice.eagle.service.iml.MenuServiceImpl - 参数为:风味茄子,null,null
+2017-11-20 13:38:46.731 [main] DEBUG com.choice.eagle.dao.MenuDao.selectMenuIdByName - ==>  Preparing: select menu_id from sys_menu where menu_name = ? 
+2017-11-20 13:38:46.762 [main] DEBUG com.choice.eagle.dao.MenuDao.selectMenuIdByName - ==> Parameters: 风味茄子(String)
+2017-11-20 13:38:46.779 [main] DEBUG com.choice.eagle.dao.MenuDao.selectMenuIdByName - <==      Total: 1
+2017-11-20 13:39:13.633 [main] DEBUG com.choice.eagle.dao.MenuDao.selectMenuIdByName - ==>  Preparing: select menu_id from sys_menu where menu_name = ? 
+2017-11-20 13:39:13.668 [main] DEBUG com.choice.eagle.dao.MenuDao.selectMenuIdByName - ==> Parameters: 可乐(String)
+2017-11-20 13:39:13.686 [main] DEBUG com.choice.eagle.dao.MenuDao.selectMenuIdByName - <==      Total: 1
+2017-11-20 13:57:18.392 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE menu_name = ? order by menu_num 
+2017-11-20 13:57:18.431 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 风味茄子(String)
+2017-11-20 13:57:18.446 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-20 14:18:55.322 [main] DEBUG com.choice.eagle.dao.MenuDao.selectNameById - ==>  Preparing: select * from sys_menu where menu_id = ? 
+2017-11-20 14:18:55.352 [main] DEBUG com.choice.eagle.dao.MenuDao.selectNameById - ==> Parameters: M1001(String)
+2017-11-20 14:18:55.367 [main] DEBUG com.choice.eagle.dao.MenuDao.selectNameById - <==      Total: 1
+2017-11-20 14:19:31.614 [main] DEBUG com.choice.eagle.dao.MenuDao.selectNameById - ==>  Preparing: select * from sys_menu where menu_id = ? 
+2017-11-20 14:19:31.651 [main] DEBUG com.choice.eagle.dao.MenuDao.selectNameById - ==> Parameters: M1001(String)
+2017-11-20 14:19:31.665 [main] DEBUG com.choice.eagle.dao.MenuDao.selectNameById - <==      Total: 1
+2017-11-20 14:22:27.691 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET cuisine_id = ?, menu_name = ?, menu_money = ?, menu_date = ?, menu_num = ?, menu_fir = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 14:22:27.723 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: C1001(String), 风味茄子(String), 400(String), 2015-01-02(String), 5(String), CSCP(String), 44444444(String), M1001(String)
+2017-11-20 14:22:27.792 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+2017-11-20 14:23:10.847 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==>  Preparing: update sys_menu SET cuisine_id = ?, menu_name = ?, menu_money = ?, menu_date = ?, menu_num = ?, menu_fir = ?, menu_mate = ? where menu_id = ? 
+2017-11-20 14:23:10.887 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: C1001(String), 风味茄子(String), 400(String), 2015-01-02(String), 6(String), CSCP(String), 44444444(String), M1001(String)
+2017-11-20 14:23:10.948 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
+>>>>>>> e2de191c2c7903fe82f8135f289d08edc6de822b

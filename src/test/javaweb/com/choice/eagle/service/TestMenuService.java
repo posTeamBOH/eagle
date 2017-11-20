@@ -24,4 +24,21 @@ public class TestMenuService extends BaseTest{
 		assertEquals(2, ByCuisineList.size());
 		assertEquals(2, ByNameList.size());
 	}
+	
+	@Test
+	public void testupdateMenu() {
+		Menu menu = new Menu();
+		menu.setMenuName("风味茄子");
+		menu.setMenuId("M1016");
+		menu.setMenuMate("111111");
+		assertEquals(1, menuService.updateMenu(menu));
+	}
+	
+	@Test
+	public void testselectByRequire() {
+		List<Menu> list = menuService.selectByRequire(null, null, null);
+		assertEquals(16, list.size());
+		list = menuService.selectByRequire("风味茄子", null, null);
+		assertEquals("M1001", list.get(0).getMenuId());
+	}
 }

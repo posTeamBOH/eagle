@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.annotations.Param;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.choice.eagle.cache.JedisUtil;
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.service.CuisineService;
 import com.choice.eagle.service.MenuService;
@@ -23,6 +26,10 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 @Controller
 @RequestMapping("/menu")
 public class MenuController {
+	
+	//日志记录
+	Logger logger = LoggerFactory.getLogger(MenuController.class);
+	
 	@Autowired
 	private MenuService menuService;
 	
@@ -31,17 +38,22 @@ public class MenuController {
 	
 	//得到菜品
 	/**
+	 * 此处的menuId为菜品名称
 	 * 后台人员根据条件查询菜
 	 */
 	@RequestMapping(value="/getMenu", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("endTime") String endTime,@RequestParam("pageNo") int pageNo) {
+	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime, @RequestParam("endTime") String endTime) {
+		logger.info("====start====");
 		if (menuId == "") menuId = null;
 		if (beginTime == "") beginTime = null;
 		if (endTime == "") endTime = null;
 		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
-		return menus;
 
+		logger.error("MenuController,getMenus方法");
+		logger.debug("参数为:{},{},{},{}", menuId, beginTime, endTime);
+		logger.info("====end====");
+		return menus;
 	}
 	//删除菜
 	//后台人员点击删除
@@ -70,6 +82,7 @@ public class MenuController {
 	@RequestMapping(value="/addMenu.do", method=RequestMethod.POST)
 	@ResponseBody
 	public String add(HttpServletRequest request) {
+		logger.info("====start====");
 		Menu menu = new Menu();
 		menu.setMenuName(request.getParameter("AfoodName"));
 		menu.setMenuMoney(request.getParameter("AFoodPrice"));
@@ -80,6 +93,15 @@ public class MenuController {
 		String cuisineName = request.getParameter("AddfoodClass");
 		String cuisineId = cuisineService.selectCuisineId(cuisineName);
 		menu.setCuisineId(cuisineId);
+		logger.debug("参数:{},{},{},{},{},{},{}",request.getParameter("AfoodName"),
+				request.getParameter("AFoodPrice"),
+				request.getParameter("AfoodWord"),
+				request.getParameter("AddFoodSize"),
+				request.getParameter("AddFoodCL"),
+				request.getParameter("AddFoodMark"),
+				cuisineName);
+		logger.error("MenuController类  add方法");
+		logger.info("====end====");
 		return menuService.insertMenu(menu) == 0 ? "false" : "true";
 	}
 	

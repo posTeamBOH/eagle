@@ -41,7 +41,7 @@
   </update>
  <!-- 点击结账判断rorder中没上菜的个数-->
   <select id="countNotUpdate" parameterType="String" resultType="int">
-select count(*) from sys_rorder WHERE order_id=#{orderId} and rorder_type='0'
+select count(rorder_id) from sys_rorder WHERE order_id=#{orderId} and rorder_type='0'
   </select>
   
   <delete id = "deleteRorder" parameterType = "String">

@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TestRedis extends BaseTest{
 
-	Logger logger = LoggerFactory.getLogger(RorderController.class);
+	Logger logger = LoggerFactory.getLogger(TestRedis.class);
 	
 	@Autowired
 	private OrderService orderService;
@@ -32,6 +32,7 @@ public class TestRedis extends BaseTest{
 	
 	@Test
 	public void testRedis() {
+		logger.info("====start====");
 		String key = CESHIKEY;
 		List<Order> ceshilist = orderService.selectByRequire(null, null, null);
 		ObjectMapper mapper = new ObjectMapper();
@@ -39,10 +40,13 @@ public class TestRedis extends BaseTest{
 		try {
 			jsonString = mapper.writeValueAsString(ceshilist);
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
+			logger.debug(e.toString());
+			logger.error(e.toString());
 			e.printStackTrace();
 		}
+		logger.debug("TestRedis类 testRedis方法");
 		jedisStrings.set(key, jsonString);
+		logger.info("====end====");
 		assertEquals(jsonString, jedisStrings.get(key));
 	}
 }

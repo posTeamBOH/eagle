@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Menu {
+
 	private String menuId;
 	private String cuisineId;
 	private String menuName;
