@@ -9,12 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Menu {
-	@Override
-	public String toString() {
-		return "Menu [menuId=" + menuId + ", cuisineId=" + cuisineId + ", menuName=" + menuName + ", menuMoney="
-				+ menuMoney + ", menuDate=" + menuDate + ", menuNum=" + menuNum + ", menuFir=" + menuFir + ", menuMate="
-				+ menuMate + ", menuRem=" + menuRem + "]";
-	}
+
 	private String menuId;
 	private String cuisineId;
 	private String menuName;
@@ -78,4 +73,11 @@ public class Menu {
 	public void setMenuRem(String menuRem) {
 		this.menuRem = menuRem;
 	}
+	@Override
+	public String toString() {
+		return "Menu [menuId=" + menuId + ", cuisineId=" + cuisineId + ", menuName=" + menuName + ", menuMoney="
+				+ menuMoney + ", menuDate=" + menuDate + ", menuNum=" + menuNum + ", menuFir=" + menuFir + ", menuMate="
+				+ menuMate + ", menuRem=" + menuRem + "]";
+	}
+	
 }

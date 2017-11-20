@@ -62,8 +62,8 @@
 	 <select id="selectByRequire"  resultType="Menu" >  
 	select * from sys_menu  
 	<where>   
-	  <if test="menuId != null">  
-	       menu_name = #{menuId}  
+	  <if test="menuName != null">  
+	       menu_name = #{menuName}  
 	  </if>   
 	  <if test="beginTime != null and beginTime != ''">
 	  AND menu_date <![CDATA[>=]]> #{beginTime}</if> 

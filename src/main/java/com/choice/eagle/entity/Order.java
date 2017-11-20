@@ -2,6 +2,8 @@ package com.choice.eagle.entity;
 
 import org.springframework.stereotype.Component;
 
+import com.alibaba.fastjson.serializer.SerializeConfig;
+
 /**
  * 订单
  * @author mengq
@@ -57,6 +59,12 @@ public class Order {
 	}
 	public void setOrderRemark(String orderRemark) {
 		this.orderRemark = orderRemark;
+	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", tablesId=" + tablesId + ", orderDate=" + orderDate + ", orderMoney="
+				+ orderMoney + ", orderNum=" + orderNum + ", orderType=" + orderType + ", orderRemark=" + orderRemark
+				+ "]";
 	}
 	
 

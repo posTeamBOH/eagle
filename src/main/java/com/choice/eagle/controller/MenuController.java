@@ -52,6 +52,7 @@ public class MenuController {
 		if (beginTime == "") beginTime = null;
 		if (endTime == "") endTime = null;
 		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
+
 		logger.error("MenuController,getMenus方法");
 		logger.debug("参数为:{},{},{},{}", menuId, beginTime, endTime);
 		logger.info("====end====");
