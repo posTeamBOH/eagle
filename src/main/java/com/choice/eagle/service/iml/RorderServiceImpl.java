@@ -81,6 +81,8 @@ public class RorderServiceImpl implements RorderService{
 	
 		//改变桌子状态
 		tableDao.updateTableStatus(tableId, "1");
+		System.out.println("改变桌子状态");
+		System.out.println(tableDao.updateTableStatus(tableId, "未结算"));
 		//添加订单
 		order.setOrderId(orderId);
 		order.setTablesId(tableId);
@@ -117,7 +119,7 @@ public class RorderServiceImpl implements RorderService{
 		int i=rorderDao.countNotUpdate(orderId);
 		if(i==0) {
 			try {
-				rorderDao.updateTableStatus(tableId, "0");
+				rorderDao.updateTableStatus(tableId, "已付款");
 				rorderDao.updateOrderStatus(orderId);
 			} catch (Exception e) {
 				logger.error("桌位状态改变出错");
