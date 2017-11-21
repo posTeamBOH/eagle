@@ -1,7 +1,9 @@
 package com.choice.eagle.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
 import com.choice.eagle.cache.JedisUtil;
+import com.choice.eagle.entity.Cuisine;
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.service.CuisineService;
 import com.choice.eagle.service.MenuService;
@@ -44,27 +48,57 @@ public class MenuController {
 	 */
 	@RequestMapping(value="/getMenu", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getMenus(@RequestParam("foodName") String menuId, @RequestParam("beginTime") String beginTime,
-			@RequestParam("endTime") String endTime, HttpServletResponse response){
+	public List<Menu> getMenus(HttpServletRequest request, HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
+		String menuId = request.getParameter("foodName");
+		String beginTime = request.getParameter("beginTime");
+		String endTime = request.getParameter("endTime");
 		logger.info("====start====");
 		if (menuId == "") menuId = null;
-		if (beginTime == "") beginTime = null;
-		if (endTime == "") endTime = null;
+		List<Cuisine> list = cuisineService.selectAllCuisines();
 		List<Menu> menus = menuService.selectByRequire(menuId, beginTime, endTime);
-
+		if (menus != null && menus.size() > 0) {
+			for (Menu menu : menus) {
+				String cuiId = menu.getCuisineId();
+				for (int i = 0; i < list.size(); i++) {
+					if (list.get(i).getCuisineId().equals(cuiId)) {
+						menu.setCuisineId(list.get(i).getCuisineName());
+						break;
+					}
+				}
+			}
+		}
 		logger.error("MenuController,getMenus方法");
 		logger.debug("参数为:{},{},{},{}", menuId, beginTime, endTime);
 		logger.info("====end====");
 		return menus;
 	}
+	
+	//返回所有的菜目信息和对应的菜品信息
+	@RequestMapping(value ="/selectCuisineMenu", produces = { "application/json;charset=UTF-8" }  )
+	@ResponseBody
+	public String selectCuisineMenu(HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		Map<String, Object> map = null;
+		List<Cuisine> list = cuisineService.selectAllCuisines();
+		List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>();
+		for (Cuisine cuisine : list) {
+			map = new HashMap<String, Object>();
+			map.put("key", cuisine.getCuisineId());
+			map.put("foodClass", cuisine.getCuisineName());
+			List<Menu> menus = menuService.selectByCuisine(cuisine.getCuisineId());
+			map.put("food", menus);
+			mapList.add(map);
+		}
+		return JSON.toJSONString(mapList);
+	}
 	//删除菜
 	//后台人员点击删除
 	@RequestMapping(value="/deleteMenu.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String deleteMenu(Menu menu, HttpServletResponse response) {
+	public String deleteMenu(String menuName, HttpServletResponse response) {
 		response.setHeader("Access-Control-Allow-Origin", "*");
-		return menuService.deleteByMenuId(menu.getMenuId()) == 0  ? "false" : "true";
+		return menuService.deleteByMenuId(menuName) == 0  ? "false" : "true";
 	}
 //	
 //	//删除菜
@@ -86,7 +120,7 @@ public class MenuController {
 	//后台人员添加菜品
 	@RequestMapping(value="/addMenu.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String add(HttpServletRequest request, HttpServletResponse response) {
+	public List<Menu> add(HttpServletRequest request, HttpServletResponse response) {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		logger.info("====start====");
 		Menu menu = new Menu();
@@ -96,9 +130,11 @@ public class MenuController {
 		menu.setMenuNum(request.getParameter("AddFoodSize"));
 		menu.setMenuMate(request.getParameter("AddFoodCL"));
 		menu.setMenuRem(request.getParameter("AddFoodMark"));
+		menu.setMenuDate(request.getParameter("NowData"));
 		String cuisineName = request.getParameter("AddfoodClass");
 		String cuisineId = cuisineService.selectCuisineId(cuisineName);
 		menu.setCuisineId(cuisineId);
+		menuService.insertMenu(menu);
 		logger.debug("参数:{},{},{},{},{},{},{}",request.getParameter("AfoodName"),
 				request.getParameter("AFoodPrice"),
 				request.getParameter("AfoodWord"),
@@ -108,7 +144,7 @@ public class MenuController {
 				cuisineName);
 		logger.error("MenuController类  add方法");
 		logger.info("====end====");
-		return menuService.insertMenu(menu) == 0 ? "false" : "true";
+		return menuService.selectByRequire(null, null, null);
 	}
 	
 
@@ -134,7 +170,8 @@ public class MenuController {
 	//根据菜目查询菜品
 	@RequestMapping("/selectByCuisine")
 	@ResponseBody
-	public List<Menu> selectByCuisine(@Param("CuisineId") String CuisineId){
+	public List<Menu> selectByCuisine(@Param("CuisineId") String CuisineId, HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		List<Menu> list = menuService.selectByCuisine(CuisineId);
 		return list;
 	}

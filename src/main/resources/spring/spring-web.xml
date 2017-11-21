@@ -22,6 +22,6 @@
      <!-- 定义跳转的文件的前后缀 ，视图模式配置-->  
     
     <context:component-scan base-package="com.choice.eagle.controller" />
- 
+
 
 </beans>

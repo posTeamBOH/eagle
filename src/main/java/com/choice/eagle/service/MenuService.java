@@ -23,7 +23,7 @@ public interface MenuService {
 	int insertMenu(Menu menu);  
 	
 	//删
-	int deleteByMenuId(String menuId);
+	int deleteByMenuId(String menuName);
 	
 	//改
 	int updateMenu(Menu menu);

@@ -36,7 +36,7 @@ public class JmsTestController {
 	@ResponseBody
 	public String  testSend() {
 		Table table = new Table();
-		table.setTablesId(UuidUtil.getId());
+		table.setTablesId(UuidUtil.getTableId());
 		table.setTablesType("0");
 		
 		

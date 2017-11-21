@@ -76,31 +76,22 @@ public class RorderServiceImpl implements RorderService{
 	@Override
 	@Transactional
 	public String insertOrder(String tableId, Order order, HashMap<String, Integer> menuNum) {
-		String orderId = UuidUtil.getId();
+		String orderId = UuidUtil.getOrderId();
 		
-		
-		System.out.println(tableId);
-		System.out.println(order);
-		System.out.println(menuNum);
+	
 		//改变桌子状态
-		System.out.println("改变桌子状态");
-		System.out.println(tableDao.updateTableStatus(tableId, "1"));
+		tableDao.updateTableStatus(tableId, "1");
 		//添加订单
-		System.out.println("添加订单");
 		order.setOrderId(orderId);
 		order.setTablesId(tableId);
 		order.setOrderType("0");
 		int aws = orderDao.insertOrder(order);
-		System.out.println("添加菜单明细");
 		//添加订单明细
 		for (String key : menuNum.keySet()) {
 			Menu menu = menuDao.selectByRequire(key, null, null).get(0);
 			String menuId = menu.getMenuId();
-			System.out.println(menuId);
-			int j = menuNum.get(key);
-			System.out.println(j);
 			for (int i = 0; i < (int) menuNum.get(key); i++) {
-				String rorderId = UuidUtil.getId();
+				String rorderId = UuidUtil.getRorderId();
 				Rorder rorder = new Rorder();
 				rorder.setOrderId(orderId);
 				rorder.setMenuId(menuId);

@@ -60,7 +60,7 @@ public class MenuServiceImpl implements MenuService{
 	@Override
 	public int  insertMenu(Menu menu) {
 		// TODO Auto-generated method stub
-		menu.setMenuId(UuidUtil.getId());
+		menu.setMenuId(UuidUtil.getMenuId());
 		return menuDao.insertMenu(menu);
 	}
 
@@ -118,8 +118,7 @@ public class MenuServiceImpl implements MenuService{
 				}
 				jedisStrings.set(menu.getMenuName(), jsonString);
 			}
-		}
-		if (menuName != null && jedisKeys.exists(menuName)){
+		}else if (menuName != null && jedisKeys.exists(menuName)){
 			String jsonString = jedisStrings.get(menuName);
 			JavaType javaType = mapper.getTypeFactory().constructType(Menu.class);
 			try {
@@ -130,6 +129,8 @@ public class MenuServiceImpl implements MenuService{
 				logger.error("json转换实体类错误");
 				e.printStackTrace();
 			}
+		}else {
+			list = menuDao.selectByRequire(menuName, beginTime, endTime);
 		}
 		logger.debug("参数为:{},{},{}", menuName, beginTime, endTime);
 		logger.info("====end====");

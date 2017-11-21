@@ -3,6 +3,7 @@ package com.choice.eagle.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class OrderController {
 	private OrderService orderService;
 	//根据订单号查询订单的每个菜品及数量
 	@RequestMapping("/selectMenuByOrderId.do")
-	public @ResponseBody List<MenuNum> selectMenuByOrderId(@Param("orderId")String orderId){
-		
+	public @ResponseBody List<MenuNum> selectMenuByOrderId(@Param("orderId")String orderId, HttpServletResponse response){
+		 response.setHeader("Access-Control-Allow-Origin", "*");
 		 List<MenuNum> list = new ArrayList<MenuNum>();
 		 
 		 list = rorderService.selectMenuByOrderId(orderId) ;
@@ -37,7 +38,8 @@ public class OrderController {
 	//根据桌号查询订单
 	@RequestMapping("/getOrderByTable")
 	@ResponseBody
-	public List<Order> getOrderByTable(String tableId) {
+	public List<Order> getOrderByTable(String tableId, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		List<Order> orders  = orderService.selectByTable(tableId);
 		return orders;
 	}

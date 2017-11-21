@@ -21,7 +21,7 @@ public class MyTest extends BaseTest{
 	
 	@Autowired
 	TableDao tableDao;
-	//²âÊÔ¸Ä±ä×À×Ó×´Ì¬
+	//ï¿½ï¿½ï¿½Ô¸Ä±ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
 	@Test
 	public void testUpdateTableStatus() {
 		int a = tableDao.updateTableStatus("T1001", "1");
@@ -40,7 +40,7 @@ public class MyTest extends BaseTest{
 		double orderNum = 10;
 		String orderRemark = "";
 		Order order = new Order();
-		order.setOrderId(UuidUtil.getId());
+		order.setOrderId(UuidUtil.getOrderId());
 		order.setTablesId(tableId);
 		order.setOrderDate(orderDate);
 		order.setOrderMoney(orderMoney);
@@ -51,14 +51,14 @@ public class MyTest extends BaseTest{
 		orderDao.insertOrder(order);
 		assertEquals(1, orderDao.insertOrder(order));
 	}
-	//²âÊÔÌí¼Ó¶©µ¥Ã÷Ï¸
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸
 	@Autowired
 	RorderDao rorderDao;
 	@Test
 	public void testIn() {
 		String orderId = "O1001";
 		String menuId = "M1001";
-		String rorderId = UuidUtil.getId();
+		String rorderId = UuidUtil.getRorderId();
 		Rorder rorder = new Rorder();
 		rorder.setOrderId(orderId);
 		rorder.setMenuId(menuId);
@@ -67,7 +67,7 @@ public class MyTest extends BaseTest{
 		assertEquals(0, rorderDao.insertRorder(rorder));
 	}
 	
-	//¸ù¾Ý²ËµÄÃû×Ö²éÑ¯²ËµÄid
+	//ï¿½ï¿½ï¿½Ý²Ëµï¿½ï¿½ï¿½ï¿½Ö²ï¿½Ñ¯ï¿½Ëµï¿½id
 	 @Autowired
 	 MenuDao menuDao;
 	 
@@ -77,7 +77,7 @@ public class MyTest extends BaseTest{
 	 }
 	
 
-	 //É¾³ý²Ëµ¥Ã÷Ï¸
+	 //É¾ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ï¸
 	 @Test
 	 public void deleteRorderTest() {
 		 assertEquals(2, rorderDao.deleteRorder("O1001", "M1001"));
