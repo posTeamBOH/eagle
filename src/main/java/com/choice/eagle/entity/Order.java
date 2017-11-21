@@ -2,8 +2,6 @@ package com.choice.eagle.entity;
 
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson.serializer.SerializeConfig;
-
 /**
  * 订单
  * @author mengq

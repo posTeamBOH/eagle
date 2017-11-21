@@ -1,11 +1,7 @@
 package com.choice.eagle.dao;
 
 import com.choice.eagle.entity.Menu;
-import com.choice.eagle.entity.Order;
-
 import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface MenuDao {

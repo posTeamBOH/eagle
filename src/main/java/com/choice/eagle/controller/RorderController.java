@@ -30,7 +30,6 @@ import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.OrderService;
 import com.choice.eagle.service.ProducerService;
 import com.choice.eagle.service.RorderService;
-import com.choice.eagle.service.iml.ProducerServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -134,7 +133,7 @@ public class RorderController {
 			}
 			if (jsonString != null) jedisString.set(orderid, jsonString);
 		}
-		logger.error("RorderController empty方法其中使用参数为 null null null 1");
+		logger.error("RorderController empty方法其中使用参数为 null null null");
 		long endTime = System.currentTimeMillis();
 		logger.debug("costTime:[{}ms]", endTime - startTime);
 		logger.info("====end====");
@@ -186,7 +185,4 @@ public class RorderController {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		return rorderService.deleteRorder(orderId, menuName) > 0 ? "true" : "false";
 	}
-	
-	
-  
 }

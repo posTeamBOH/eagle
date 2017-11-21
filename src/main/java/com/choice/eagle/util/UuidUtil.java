@@ -1,7 +1,6 @@
 package com.choice.eagle.util;
 
 import java.util.Random;
-import java.util.UUID;
 
 /**
  * 生成主键位

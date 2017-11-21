@@ -13,20 +13,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.alibaba.fastjson.JSON;
-import com.choice.eagle.cache.JedisUtil;
 import com.choice.eagle.entity.Cuisine;
 import com.choice.eagle.entity.Menu;
 import com.choice.eagle.service.CuisineService;
 import com.choice.eagle.service.MenuService;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 
 @Controller
 @RequestMapping("/menu")
@@ -92,20 +86,18 @@ public class MenuController {
 		}
 		return JSON.toJSONString(mapList);
 	}
+	
 	//删除菜
 	//后台人员点击删除
 	@RequestMapping(value="/deleteMenu.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String deleteMenu(String menuName, HttpServletResponse response) {
+	public List<Menu> deleteMenu(String menuName, HttpServletResponse response) {
 		response.setHeader("Access-Control-Allow-Origin", "*");
-		return menuService.deleteByMenuId(menuName) == 0  ? "false" : "true";
+		Menu menu = menuService.selectByRequire(menuName, null, null).get(0);
+		menu.setMenuRem("已下架");
+		menuService.updateMenu(menu);
+		return  menuService.selectByRequire(null, null, null);
 	}
-//	
-//	//删除菜
-//	@RequestMapping(value="/deleteMenu", method=RequestMethod.POST)
-//	public boolean deleteMenu(Menu menu) {
-//		return menuService.deleteByMenuId(menu.getMenuId());
-//	}
 	
 	//编辑菜
 	//后台人员确定修改菜品
@@ -146,8 +138,6 @@ public class MenuController {
 		logger.info("====end====");
 		return menuService.selectByRequire(null, null, null);
 	}
-	
-
 
 	//获得余量不足菜品
 	@RequestMapping("/selectByMenu")

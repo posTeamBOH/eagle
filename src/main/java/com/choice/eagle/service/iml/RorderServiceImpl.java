@@ -3,18 +3,13 @@ package com.choice.eagle.service.iml;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.print.attribute.standard.RequestingUserName;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.choice.eagle.cache.JedisUtil;
 import com.choice.eagle.dao.MenuDao;
-import com.choice.eagle.dao.OrderDao;
 import com.choice.eagle.dao.RorderDao;
 import com.choice.eagle.dao.TableDao;
 import com.choice.eagle.entity.Menu;
@@ -23,7 +18,6 @@ import com.choice.eagle.entity.Order;
 import com.choice.eagle.entity.Rorder;
 import com.choice.eagle.service.RorderService;
 import com.choice.eagle.util.UuidUtil;
-import com.fasterxml.jackson.databind.node.DoubleNode;
 
 @Service
 public class RorderServiceImpl implements RorderService{
@@ -33,17 +27,9 @@ public class RorderServiceImpl implements RorderService{
 	@Autowired
 	private TableDao tableDao;
 	@Autowired
-	private OrderDao orderDao;
-	@Autowired
 	private MenuDao menuDao;
-	@Autowired
-	private JedisUtil.Strings jedisStrings;
-	@Autowired
-	private JedisUtil.Keys jedisKeys;
-	
 	@Override
 	public List<MenuNum> selectMenuByOrderId(String orderId) {
-		// TODO Auto-generated method stub
 		return rorderDao.selectMenuByOrderId(orderId);
 	}
 
@@ -81,13 +67,10 @@ public class RorderServiceImpl implements RorderService{
 	
 		//改变桌子状态
 		tableDao.updateTableStatus(tableId, "1");
-		System.out.println("改变桌子状态");
-		System.out.println(tableDao.updateTableStatus(tableId, "未结算"));
 		//添加订单
 		order.setOrderId(orderId);
 		order.setTablesId(tableId);
-		order.setOrderType("0");
-		int aws = orderDao.insertOrder(order);
+		order.setOrderType("未结算");
 		//添加订单明细
 		for (String key : menuNum.keySet()) {
 			Menu menu = menuDao.selectByRequire(key, null, null).get(0);
@@ -138,7 +121,6 @@ public class RorderServiceImpl implements RorderService{
 	//删除菜单明细
 	@Override
 	public int deleteRorder(String orderId, String menuName) {
-		// TODO Auto-generated method stub
 		String menuId = menuDao.selectMenuIdByName(menuName);
 		return rorderDao.deleteRorder(orderId, menuId);
 	}

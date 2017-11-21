@@ -36,7 +36,7 @@
   	<!-- 删 -->
   	<!-- 测试完成 -->
   	<delete id="deleteByMenuId" parameterType="String">  		
-   		delete from sys_menu where menu_id=#{menuId} 
+   		delete from sys_menu where menu_name=#{menuId} 
    	</delete>
    	
    	<!-- 改-->

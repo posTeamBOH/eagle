@@ -11,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.choice.eagle.BaseTest;
 import com.choice.eagle.cache.JedisUtil;
-import com.choice.eagle.controller.RorderController;
 import com.choice.eagle.entity.Order;
-import com.choice.eagle.entity.Rorder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -23,8 +21,6 @@ public class TestRedis extends BaseTest{
 	
 	@Autowired
 	private OrderService orderService;
-	@Autowired
-	private JedisUtil.Keys jedisKeys;
 	@Autowired
 	private JedisUtil.Strings jedisStrings;
 	
