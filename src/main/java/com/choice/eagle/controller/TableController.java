@@ -2,6 +2,8 @@ package com.choice.eagle.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,8 @@ public class TableController {
 	 */
 	@RequestMapping("/selectStatus")
 	@ResponseBody
-	public List<Table> selectStatus(){
+	public List<Table> selectStatus(HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		logger.info("====start====");
 		List<Table> tablelist = tableService.selectStatus();
 		logger.debug("TableController类    selectStatus方法");

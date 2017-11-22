@@ -1,11 +1,5 @@
 package com.choice.eagle.service.iml;
 
-/**
- * 发送消息
- * 
- *
- */
-import javax.annotation.Resource;
 import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;

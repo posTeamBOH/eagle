@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.jms.Destination;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,6 @@ import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.OrderService;
 import com.choice.eagle.service.ProducerService;
 import com.choice.eagle.service.RorderService;
-import com.choice.eagle.service.iml.ProducerServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -59,7 +59,8 @@ public class RorderController {
 	//后台人员根据条件查询订单，得到订单、订单中的菜品数量
 	@RequestMapping(value="/getOrders", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Order> getOrderByRequest(HttpServletRequest request) {
+	public List<Order> getOrderByRequest(HttpServletRequest request, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		logger.info("====start====");
 		String orderId = request.getParameter("orderId");
 		String begin = request.getParameter("begin");
@@ -97,7 +98,8 @@ public class RorderController {
 	//通过订单编号得到订单中菜品种类和数量
 	@RequestMapping("/selectMenuByOrderId")
 	@ResponseBody
-	public List<MenuNum> selectMenuByOrderId(@RequestParam("orderId") String orderId){
+	public List<MenuNum> selectMenuByOrderId(@RequestParam("orderId") String orderId, HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		logger.info("====start====");
 		List<MenuNum> list = rorderService.selectMenuByOrderId(orderId);
 		logger.error("RorderController类  selectMenuByOrderId方法");
@@ -109,7 +111,8 @@ public class RorderController {
 	//首次加载页面时给的数据
 	@RequestMapping("/empty")
 	@ResponseBody
-	public List<Order> emptygetOrderByRequest(){
+	public List<Order> emptygetOrderByRequest(HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		logger.info("====start====");
 		long startTime = System.currentTimeMillis();
 		List<Order> orders = orderService.selectByRequire(null, null, null);
@@ -130,7 +133,7 @@ public class RorderController {
 			}
 			if (jsonString != null) jedisString.set(orderid, jsonString);
 		}
-		logger.error("RorderController empty方法其中使用参数为 null null null 1");
+		logger.error("RorderController empty方法其中使用参数为 null null null");
 		long endTime = System.currentTimeMillis();
 		logger.debug("costTime:[{}ms]", endTime - startTime);
 		logger.info("====end====");
@@ -141,8 +144,11 @@ public class RorderController {
 	//提交订单
 	@RequestMapping("/commitOrder")
 	@ResponseBody
-	public String commitOrder(String tableId, String orderDate, String orderMoney, String orderNum,
-			String orderRemark, HashMap<String, Integer> menuNum) {
+	public void commitOrder(String tableId, String orderDate, String orderMoney, String orderNum,
+			 String menuNum, HttpServletResponse response) {
+		System.out.println(menuNum);
+		String orderRemark = "";
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		Order order = new Order();
 		order.setOrderDate(orderDate);
 		order.setOrderMoney(Double.parseDouble(orderMoney));
@@ -154,12 +160,12 @@ public class RorderController {
 		jsonString.put("menu", menuNum);
 		producerService.sendMessage(destination, 
 				JSON.toJSONString(jsonString));
-		return "suss";
 	}
 	//点击上菜改变订单联系表中的菜品状态
 	@RequestMapping("/updateMenuStatus")
 	@ResponseBody
-	public String updateMenuStatus(@RequestParam("orderId") String orderId,@RequestParam("menuName") String menuName) {
+	public String updateMenuStatus(@RequestParam("orderId") String orderId,@RequestParam("menuName") String menuName, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		int i=rorderService.updateMenuStatus(orderId, menuName);
 		return (i == 0) ? "false" : "true";
 		
@@ -167,17 +173,16 @@ public class RorderController {
 	//点击结账改变桌子，订单的状态
 	@RequestMapping("/updateAllStatus")
 	@ResponseBody
-	public String updateAllStatus(@RequestParam("orderId") String orderId,@RequestParam("tableId") String tableId) {
+	public String updateAllStatus(@RequestParam("orderId") String orderId,@RequestParam("tableId") String tableId, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		int i=rorderService.updateAllStatus(tableId, orderId);
 		return (i == 0) ? "false" : "true";
 	}
 	//删除菜单明细
 	@RequestMapping("/deleteRorder")
 	@ResponseBody
-	public String deleteRorder(String orderId, String menuName) {
+	public String deleteRorder(String orderId, String menuName, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		return rorderService.deleteRorder(orderId, menuName) > 0 ? "true" : "false";
 	}
-	
-	
-  
 }

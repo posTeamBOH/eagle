@@ -3,7 +3,6 @@ package com.choice.eagle.service;
 import java.util.List;
 
 import com.choice.eagle.entity.Menu;
-import com.choice.eagle.entity.Order;
 
 public interface MenuService {
 
@@ -23,7 +22,7 @@ public interface MenuService {
 	int insertMenu(Menu menu);  
 	
 	//删
-	int deleteByMenuId(String menuId);
+	int deleteByMenuId(String menuName);
 	
 	//改
 	int updateMenu(Menu menu);

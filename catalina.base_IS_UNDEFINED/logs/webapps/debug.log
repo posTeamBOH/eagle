@@ -97,3 +97,18 @@
 2017-11-20 14:23:10.887 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - ==> Parameters: C1001(String), 风味茄子(String), 400(String), 2015-01-02(String), 6(String), CSCP(String), 44444444(String), M1001(String)
 2017-11-20 14:23:10.948 [main] DEBUG com.choice.eagle.dao.MenuDao.updateMenu - <==    Updates: 1
 >>>>>>> e2de191c2c7903fe82f8135f289d08edc6de822b
+2017-11-20 16:05:20.414 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE 1=1 AND menu_date >= ? AND menu_date <=? order by menu_num 
+2017-11-20 16:05:20.467 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 2017-01-01(String), 2018-01-01(String)
+2017-11-20 16:05:20.486 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-20 16:06:55.470 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE 1=1 AND menu_date >= ? AND menu_date <=? order by menu_num 
+2017-11-20 16:06:55.525 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 2017-01-01(String), 2018-01-01(String)
+2017-11-20 16:06:55.549 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-20 16:09:26.776 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE 1=1 AND menu_date >= ? AND menu_date <=? order by menu_num 
+2017-11-20 16:09:26.831 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 2017-01-01(String), 2018-01-01(String)
+2017-11-20 16:09:26.854 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-20 16:09:56.305 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==>  Preparing: select * from sys_menu WHERE 1=1 AND menu_date >= ? AND menu_date <=? order by menu_num 
+2017-11-20 16:09:56.352 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - ==> Parameters: 2017-01-01(String), 2018-01-01(String)
+2017-11-20 16:09:56.372 [main] DEBUG com.choice.eagle.dao.MenuDao.selectByRequire - <==      Total: 1
+2017-11-20 17:51:28.214 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectAllCuisines - ==>  Preparing: select * from sys_cuisine 
+2017-11-20 17:51:28.262 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectAllCuisines - ==> Parameters: 
+2017-11-20 17:51:28.291 [main] DEBUG com.choice.eagle.dao.CuisineDao.selectAllCuisines - <==      Total: 7

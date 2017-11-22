@@ -1,16 +1,28 @@
 package com.choice.eagle.util;
 
-import java.util.UUID;
+import java.util.Random;
 
 /**
- * 生成主键32位
- * @author S_eve
+ * 生成主键位
+ * 
  *
  */
 public class UuidUtil {
-	public static String getId() {
-		String id = UUID.randomUUID().toString();
-		id = id.replaceAll("-", "");
-		return id;
+	public static String getMenuId() {
+		Random ran = new Random(System.currentTimeMillis());
+		return "M" + ran.nextLong();
 	}
+	public static String getOrderId() {
+		Random ran = new Random(System.currentTimeMillis());
+		return "O" + ran.nextLong();
+	}
+	public static String getRorderId() {
+		Random ran = new Random(System.currentTimeMillis());
+		return "R" + ran.nextLong();
+	}
+	public static String getTableId() {
+		Random ran = new Random(System.currentTimeMillis());
+		return "T" + ran.nextLong();
+	}
+	
 }

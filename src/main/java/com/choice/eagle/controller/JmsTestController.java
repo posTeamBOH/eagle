@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-import com.choice.eagle.entity.Menu;
 import com.choice.eagle.entity.Table;
 import com.choice.eagle.service.ProducerService;
-import com.choice.eagle.service.iml.ProducerServiceImpl;
 import com.choice.eagle.util.UuidUtil;
 
 /**
@@ -36,7 +34,7 @@ public class JmsTestController {
 	@ResponseBody
 	public String  testSend() {
 		Table table = new Table();
-		table.setTablesId(UuidUtil.getId());
+		table.setTablesId(UuidUtil.getTableId());
 		table.setTablesType("0");
 		
 		

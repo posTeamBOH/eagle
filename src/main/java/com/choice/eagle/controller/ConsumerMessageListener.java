@@ -10,7 +10,6 @@ import javax.jms.TextMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSON;
-import com.choice.eagle.entity.MenuNum;
 import com.choice.eagle.entity.Order;
 import com.choice.eagle.service.RorderService;
 
@@ -23,6 +22,7 @@ public class ConsumerMessageListener implements MessageListener{
 
 	@Autowired
 	RorderService rorderService;
+	@SuppressWarnings("unchecked")
 	@Override
 	public void onMessage(Message message) {
 		TextMessage textMessage = (TextMessage) message;
@@ -37,7 +37,6 @@ public class ConsumerMessageListener implements MessageListener{
 			rorderService.insertOrder(tableId, order, menuNum);
 //			System.out.println("添加成功");
 		} catch (JMSException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

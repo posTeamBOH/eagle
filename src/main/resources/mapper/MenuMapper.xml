@@ -13,7 +13,7 @@
    <!-- 根据菜的种类查询菜品名称、数量和价格 -->
    <!-- 测试完成 -->
    <select id="selectByCuisine" resultType="Menu" parameterType="String">
-   		select menu_name,menu_num,menu_money from sys_menu where cuisine_id like #{name}
+   		select menu_name,menu_money from sys_menu where cuisine_id like #{name}
    </select>
    <!-- 根据菜名模糊查询 -->
    <!-- 测试完成 -->
@@ -36,7 +36,7 @@
   	<!-- 删 -->
   	<!-- 测试完成 -->
   	<delete id="deleteByMenuId" parameterType="String">  		
-   		delete from sys_menu where menu_id=#{menuId} 
+   		delete from sys_menu where menu_name=#{menuId} 
    	</delete>
    	
    	<!-- 改-->
@@ -62,8 +62,9 @@
 	 <select id="selectByRequire"  resultType="Menu" >  
 	select * from sys_menu  
 	<where>   
+		1=1
 	  <if test="menuName != null">  
-	       menu_name = #{menuName}  
+	      and menu_name = #{menuName}  
 	  </if>   
 	  <if test="beginTime != null and beginTime != ''">
 	  AND menu_date <![CDATA[>=]]> #{beginTime}</if> 
