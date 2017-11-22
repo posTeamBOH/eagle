@@ -18,7 +18,7 @@
    <!-- 根据菜名模糊查询 -->
    <!-- 测试完成 -->
 	<select id="selectByName" resultType="Menu" parameterType="String">
-   		select * from sys_menu where menu_fir like concat(concat('%',#{name}),'%')
+   		select * from sys_menu where menu_fir like concat(concat(#{name}),'%')
    </select>
     <!-- 根据菜的编号查询菜的数量 -->
     <!-- 测试完成 -->

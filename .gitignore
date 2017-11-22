@@ -37,3 +37,5 @@ Thumbs.db
 src/main/resources/jdbc.properties
 src/main/resources/jdbc.properties
 src/main/resources/jdbc.properties
+src/test/javaweb/com/choice/eagle/dao/TestMenuDao.java
+src/main/resources/mapper/MenuMapper.xml
