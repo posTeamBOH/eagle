@@ -74,4 +74,6 @@
 > # 3 实例化NavigationConfigServer对象
 
 > # 4 在网页中更改数据
-> # 5 [点击此处查看演示](http://120.27.19.38:7893/welcome.html)
+
+> # 5 配置完成
+> # [点击此处查看演示](http://120.27.19.38:7893/welcome.html)
