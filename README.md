@@ -50,7 +50,6 @@
 >>>> `例：` <br>
 >>>> `<radio id="on-tcp-receive" text="是否开启TCP监听">`<br>
 >>>> `<eachradio value="0">否</eachradio>`<br>
-
 >>>> `<eachradio value="1">是</eachradio>`<br>
 
 >>>> `</radio>`<br>
@@ -64,7 +63,6 @@
 >>>> `例：` <br>
 
 >>>> `<Affect id="center-data-dir" text="订单备份路径" value="D:\\filedir">`<br>
-
 >>>> `<Affected id="cacheFilePath" value="D:\\filedir\\cacheFile"></Affected>`<br>
 >>>> `<Affected id="historyFile" value="D:\\filedir\\historycacheFile"></Affected>`<br>
 >>>> `</Affect>`<br>
